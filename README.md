@@ -56,3 +56,14 @@ JAVA RMI?
 
 HTTP over UDP
 
+## 16
+
+Port knicking sequenece - send TCP packet to 2018 first in order to make port accessible.
+
+## 17
+
+HTTP server that requires special user-agent and referrer header.
+
+## 18
+
+UDP port with DTLS?
