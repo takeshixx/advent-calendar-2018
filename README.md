@@ -27,3 +27,32 @@ https://ma.ttias.be/googles-quic-protocol-moving-web-tcp-udp/
 
 ## 8
 Port 0 Just for fun 
+
+## 9
+
+TLS-SRP
+
+## 10
+
+TSLv1.3
+
+## 11
+
+TSL with client cert
+
+## 12
+
+IPv6 (only?), is there anything special with IPv6 that we could do?
+
+## 13
+
+HTTP server with **XMAS** method
+
+## 14
+
+JAVA RMI?
+
+## 15
+
+HTTP over UDP
+
