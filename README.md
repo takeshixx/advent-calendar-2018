@@ -58,7 +58,7 @@ HTTP over UDP
 
 ## 16
 
-Port knicking sequenece - send TCP packet to 2018 first in order to make port accessible.
+Port knocking sequenece - send TCP packet to 2018 first in order to make port accessible.
 
 ## 17
 
