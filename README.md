@@ -67,3 +67,7 @@ HTTP server that requires special user-agent and referrer header.
 ## 18
 
 UDP port with DTLS?
+
+## 19
+
+iptable/BPF rules with a pattern where useless/reserved/unnecessary bits have to be set or else the packets will be dropped.
