@@ -1,0 +1,20 @@
+{
+    "cSpell.words": [
+        "fprintf",
+        "from",
+        "get",
+        "indx",
+        "memset",
+        "mydst",
+        "myfunc",
+        "mysrc",
+        "network",
+        "short",
+        "sockfd",
+        "strlen",
+        "strncat"
+    ],
+    "files.associations": {
+        "vector": "cpp"
+    }
+}
