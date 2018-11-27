@@ -29,3 +29,6 @@ Gimme m0ar cyber funZ!1
 * HTTP server that requires special user-agent and referrer header.
 * UDP port with DTLS?
 * iptable/BPF rules with a pattern where useless/reserved/unnecessary bits have to be set or else the packets will be dropped.
+* SSH server on TCP 22
+    * Probably recompile sshd with [none cipher](https://serverfault.com/questions/116875/how-can-i-disable-encryption-on-openssh/606367#606367)
+    * Restrict commands via authorized_keys file
