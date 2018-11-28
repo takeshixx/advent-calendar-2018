@@ -32,3 +32,7 @@ Gimme m0ar cyber funZ!1
 * SSH server on TCP 22
     * Probably recompile sshd with [none cipher](https://serverfault.com/questions/116875/how-can-i-disable-encryption-on-openssh/606367#606367)
     * Restrict commands via authorized_keys file
+* Message Send Procotol 2 on TCP 18 ([RFC1312](https://tools.ietf.org/html/rfc1312))
+    * Message Send Protocol ([RFC1159](https://tools.ietf.org/html/rfc1159))
+    * On [Wikipedia](https://en.wikipedia.org/wiki/Message_Send_Protocol)
+    * Supports COOKIE (UDP) and SIGNATURE
