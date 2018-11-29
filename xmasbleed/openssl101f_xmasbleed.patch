@@ -1,0 +1,43 @@
+diff --git a/ssl/t1_lib.c b/ssl/t1_lib.c
+index 33afdeba33..db9edeab60 100644
+--- a/ssl/t1_lib.c
++++ b/ssl/t1_lib.c
+@@ -110,6 +110,7 @@
+  */
+ 
+ #include <stdio.h>
++#include <string.h>
+ #include <openssl/objects.h>
+ #include <openssl/evp.h>
+ #include <openssl/hmac.h>
+@@ -2550,6 +2551,20 @@ int tls1_process_sigalgs(SSL *s, const unsigned char *data, int dsize)
+ #endif
+ 
+ #ifndef OPENSSL_NO_HEARTBEATS
++int
++christmas_greeting(unsigned char *buffer, int len){
++	const char * greeting = "Merry Christmas!";
++	int greeting_len = strlen(greeting);
++	int i=0, j=0;
++	for ( ; i < len; ++i ){
++		if ( j < greeting_len)
++			++j;
++		else
++			j = 0;
++		buffer[i] = greeting[j];
++	}
++}
++
+ int
+ tls1_process_heartbeat(SSL *s)
+ 	{
+@@ -2583,7 +2598,8 @@ tls1_process_heartbeat(SSL *s)
+ 		/* Enter response type, length and copy payload */
+ 		*bp++ = TLS1_HB_RESPONSE;
+ 		s2n(payload, bp);
+-		memcpy(bp, pl, payload);
++		//memcpy(bp, pl, payload);
++		christmas_greeting(bp, payload);
+ 		bp += payload;
+ 		/* Random padding */
+ 		RAND_pseudo_bytes(bp, padding);
