@@ -22,3 +22,10 @@ Service Names
 ```
 
 The service provides echo, time and wishlist. The wishlist service is Santa's custom service for creating wishlists!
+
+## Building & Running
+
+```bash
+docker build -t day01_tcpmux .
+docker run -d --restart=always -p 1:1 --name=day01 day01_tcpmux
+```
