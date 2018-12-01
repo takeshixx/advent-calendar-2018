@@ -1,0 +1,13 @@
+service wishlist
+{
+    id = santa-wishlist
+    disable = no
+    type = TCPMUXPLUS UNLISTED
+    socket_type = stream
+    protocol = tcp
+    wait = no
+    user = root
+    server = /usr/src/app/wishlist.py
+    instances = 10
+    log_type = SYSLOG daemon debug
+}

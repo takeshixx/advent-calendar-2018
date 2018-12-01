@@ -20,3 +20,5 @@ Service Names
    name "HELP" must be a list of the service names of the supported
    services, one name per line.
 ```
+
+The service provides echo, time and wishlist. The wishlist service is Santa's custom service for creating wishlists!

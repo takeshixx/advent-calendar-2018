@@ -1,0 +1,9 @@
+{
+        disable         = no
+        type            = TCPMUXPLUS UNLISTED INTERNAL
+        id              = echo-stream
+        socket_type     = stream
+        protocol        = tcp
+        user            = root
+        wait            = no
+}
