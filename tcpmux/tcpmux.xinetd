@@ -1,0 +1,10 @@
+service tcpmux
+{
+    type = INTERNAL
+    id = tcpmux-server
+    socket_type = stream
+    protocol = tcp
+    user = root
+    wait = no
+}
+ 

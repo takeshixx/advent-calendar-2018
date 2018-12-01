@@ -6,7 +6,9 @@ RUN \
 WORKDIR /usr/src/app
 COPY wishlist.py .
 RUN chmod +x wishlist.py
-COPY wishlist.xinetd /etc/xinet.d/wishlist
-COPY echo.xinetd /etc/xinet.d/echo
-COPY time.xinetd /etc/xinet.d/time
+COPY wishlist.xinetd /etc/xinetd.d/wishlist
+COPY echo.xinetd /etc/xinetd.d/echo
+COPY time.xinetd /etc/xinetd.d/time
+COPY tcpmux.xinetd /etc/xinetd.d/tcpmux
+EXPOSE 1
 CMD ["/usr/sbin/xinetd", "-dontfork"]
