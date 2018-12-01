@@ -14,7 +14,7 @@ ascii_art = """                  _..._
   /                         \
  |                           |
 |                             |
-|  Santa's wichlist service!  |
+|  Santa's wishlist service!  |
 |                             |
 |                             |
  |                           |
