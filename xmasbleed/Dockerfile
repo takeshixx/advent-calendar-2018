@@ -11,9 +11,10 @@ RUN git clone https://github.com/openssl/openssl.git && \
         git apply /usr/src/app/openssl101f_xmasbleed.patch && \
         ./config && \
         make -j2 && \
-        make install
+        make install || true
 RUN git clone https://github.com/nginx/nginx.git && \
         cd nginx && \
+        git checkout release-1.14.1 && \
         auto/configure \
             --with-http_stub_status_module \
             --without-http_charset_module \
@@ -41,9 +42,16 @@ RUN git clone https://github.com/nginx/nginx.git && \
             --without-http_upstream_least_conn_module \
             --without-http_upstream_keepalive_module \
             --without-pcre \
-            --with-openssl=/usr/src/app/openssl && \
-        make CFLAGS="-Wno-error=cast-function-type" && \
+            --with-http_ssl_module \
+            --with-openssl=/usr/src/app/openssl \
+            --with-ld-opt="-L/usr/src/app/openssl" && \
+        make && \
         make install
 COPY nginx.conf /etc/nginx/nginx.conf
-EXPOSE 80
-CMD ["/usr/src/app/nginx/objs/nginx", "-g", "daemon off;"]
+RUN mkdir web
+COPY index.html web
+RUN mkdir -p /var/log/nginx
+RUN touch /var/log/nginx/access.log
+RUN touch /var/log/nginx/error.log
+CMD ["/usr/src/app/nginx/objs/nginx", "-c", "/etc/nginx/nginx.conf", "-g", "daemon off;"]
+
