@@ -11,10 +11,12 @@ import time
 from scapy.all import Ether, IP, UDP, Raw
 import logging
 import threading
+import IPython
 #logging.basicConfig(filename='bpf.log',level=logging.DEBUG)
 logging.basicConfig(level=logging.DEBUG)
 
-current_connection = None
+
+current_connection = []
  
 
 #args
@@ -93,11 +95,25 @@ def bpf_handler():
     c = Ether(packet_bytearray)
     if c.haslayer(IP):
       layer_ip = c.getlayer(IP)
-      src_address = layer_ip.src
-      logging.info('IP: {} said the magic word ;-)'.format(src_address))
-      if current_connection:
-        current_connection.send(success_text)
-        logging.info('Sending success text now to: {}'.format(src_address))
+      logging.info('IP: {} said the magic word ;-)'.format(layer_ip.src))
+      if len(current_connection) > 0:
+        for con, addr in current_connection:
+          if (layer_ip.src, layer_ip.sport) == addr:
+            con.send(success_text)
+        logging.info('Sending success text now to: {}'.format(layer_ip.src))
+
+def handle_client(cur, address):
+  global current_connection
+  data = cur.recv(2048)
+  if data:
+      cur.send(b"Jingle\n")
+  # Lets keep the Socket short open for the other thread ;-)
+  time.sleep(2)
+  # Cleanup connection
+  for cons, addr in current_connection:
+    if address == addr:
+      current_connection.remove((cons, addr))
+  cur.close()
 
 
 def Server():
@@ -106,15 +122,18 @@ def Server():
   connection.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
   connection.bind(('0.0.0.0', 9))
   connection.listen(10)
+  threads = []
   try:    
     while True:
-      current_connection, address = connection.accept()
-      data = current_connection.recv(2048)
-      if data:
-          current_connection.send(b"Jingle\n")
-      # Lets keep the Socket short open for the other thread ;-)
-      time.sleep(2)
-      current_connection.close()
+      cur, address = connection.accept()
+      current_connection.append((cur, address))
+      thread = threading.Thread(target=handle_client,args=(cur,address))
+      thread.start()
+      threads.append(thread)
+
+    for t in threads:
+      t.join()
+      
   except Exception as e:
     print("Exception: " + str(e))
     
