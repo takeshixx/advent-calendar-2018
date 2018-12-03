@@ -1,0 +1,12 @@
+[Unit]
+Description=day03: SCTP to TCP forwarding
+After=network.target
+
+[Service]
+Type=simple
+User=root
+ExecStart=/usr/bin/socat -d -d SCTP-LISTEN:3,reuseaddr,fork TCP:localhost:8003
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target
