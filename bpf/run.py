@@ -7,12 +7,14 @@ from sys import argv
 import sys
 import socket
 import os
+import time
 from scapy.all import Ether, IP, UDP, Raw
 import logging
-import asyncio
-import subprocess
+import threading
 #logging.basicConfig(filename='bpf.log',level=logging.DEBUG)
 logging.basicConfig(level=logging.DEBUG)
+
+current_connection = None
  
 
 #args
@@ -35,68 +37,98 @@ def help():
     print("    parse -i wlan0     # bind socket to wlan0")
     exit()
 
-#arguments
-interface="eth0"
+def bpf_handler():
+  global current_connection
 
-if len(argv) == 2:
-  if str(argv[1]) == '-h':
-    help()
-  else:
+  #arguments
+  interface="eth0"
+
+  if len(argv) == 2:
+    if str(argv[1]) == '-h':
+      help()
+    else:
+      usage()
+
+  if len(argv) == 3:
+    if str(argv[1]) == '-i':
+      interface = argv[2]
+    else:
+      usage()
+
+  if len(argv) > 3:
     usage()
 
-if len(argv) == 3:
-  if str(argv[1]) == '-i':
-    interface = argv[2]
-  else:
-    usage()
+  success_text = open("./success", "rb").read()  
 
-if len(argv) > 3:
-  usage()
+  print ("binding socket to '%s'" % interface)
 
-success_text = open("./success", "rb").read()
+  # initialize BPF - load source code from parse.c
+  bpf = BPF(src_file = "parse.c",debug = 0)
 
-# HackyHacky wacky jacky :D
-p = subprocess.Popen("ncat -lk -p 8080 --sh-exec \"echo -e 'HTTP/1.1 200 OK\r\n'; cat index.html\"", shell=True)
+  #load eBPF program filter of type SOCKET_FILTER into the kernel eBPF vm
+  #more info about eBPF program types
+  #http://man7.org/linux/man-pages/man2/bpf.2.html
+  logging.info('JIT eBPF Code')
+  function_filter = bpf.load_func("filter", BPF.SOCKET_FILTER)
 
-print ("binding socket to '%s'" % interface)
+  #create raw socket, bind it to interface
+  #attach bpf program to socket created
+  logging.info('Creating Raw Socket')
+  BPF.attach_raw_socket(function_filter, interface)
 
-# initialize BPF - load source code from parse.c
-bpf = BPF(src_file = "parse.c",debug = 0)
+  #get file descriptor of the socket previously created inside BPF.attach_raw_socket
+  socket_fd = function_filter.sock
 
-#load eBPF program filter of type SOCKET_FILTER into the kernel eBPF vm
-#more info about eBPF program types
-#http://man7.org/linux/man-pages/man2/bpf.2.html
-logging.info('JIT eBPF Code')
-function_filter = bpf.load_func("filter", BPF.SOCKET_FILTER)
+  #create python socket object, from the file descriptor
+  sock = socket.fromfd(socket_fd,socket.PF_PACKET,socket.SOCK_RAW,socket.IPPROTO_IP)
+  #set it as blocking socket
+  sock.setblocking(True)
 
-#create raw socket, bind it to interface
-#attach bpf program to socket created
-logging.info('Creating Raw Socket')
-BPF.attach_raw_socket(function_filter, interface)
+  while True:
+    #retrieve raw packet from socket
+    packet_str = os.read(socket_fd,2048)
+    packet_bytearray = bytearray(packet_str)
 
-#get file descriptor of the socket previously created inside BPF.attach_raw_socket
-socket_fd = function_filter.sock
+    # Parse RAW data using scapy.. super general and easy
+    c = Ether(packet_bytearray)
+    if c.haslayer(IP):
+      layer_ip = c.getlayer(IP)
+      src_address = layer_ip.src
+      logging.info('IP: {} said the magic word ;-)'.format(src_address))
+      if current_connection:
+        current_connection.send(success_text)
+        logging.info('Sending success text now to: {}'.format(src_address))
 
-#create python socket object, from the file descriptor
-sock = socket.fromfd(socket_fd,socket.PF_PACKET,socket.SOCK_RAW,socket.IPPROTO_IP)
-#set it as blocking socket
-sock.setblocking(True)
 
-while True:
-  #retrieve raw packet from socket
-  packet_str = os.read(socket_fd,2048)
-  packet_bytearray = bytearray(packet_str)
+def Server():
+  global current_connection
+  connection = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+  connection.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
+  connection.bind(('0.0.0.0', 9))
+  connection.listen(10)
+  try:    
+    while True:
+      current_connection, address = connection.accept()
+      data = current_connection.recv(2048)
+      if data:
+          current_connection.send(b"Jingle\n")
+      # Lets keep the Socket short open for the other thread ;-)
+      time.sleep(2)
+      current_connection.close()
+  except Exception as e:
+    print("Exception: " + str(e))
+    
 
-  # Parse RAW data using scapy.. super general and easy
-  c = Ether(packet_bytearray)
-  if c.haslayer(IP):
-    layer_ip = c.getlayer(IP)
-    src_address = layer_ip.src
-    logging.info('IP: {} said the magic word ;-)'.format(src_address))
-    try:
-      s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-      s.connect((src_address, 1337))
-      logging.info('Sending success text now to: {}'.format(src_address))
-      s.send(success_text)
-    except socket.error:
-      logging.info("Upps... no connection possible..")
+
+if __name__ == "__main__":
+  try:
+    server_Thread = threading.Thread(target=Server)
+    bpf_Thread = threading.Thread(target=bpf_handler)
+
+    server_Thread.start()
+    bpf_Thread.start()
+
+    server_Thread.join()
+    bpf_Thread.join()
+  except Exception as e:
+    print ("Error: unable to start thread: " + str(e))
