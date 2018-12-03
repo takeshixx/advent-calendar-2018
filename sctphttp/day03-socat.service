@@ -5,7 +5,7 @@ After=network.target
 [Service]
 Type=simple
 User=root
-ExecStart=/usr/bin/socat -d -d SCTP-LISTEN:3,reuseaddr,fork TCP:localhost:8003
+ExecStart=/usr/bin/socat -d -d SCTP4-LISTEN:3,bind=51.75.68.227,reuseaddr,fork TCP:localhost:8003
 Restart=on-failure
 
 [Install]

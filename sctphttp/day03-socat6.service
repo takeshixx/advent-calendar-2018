@@ -1,0 +1,12 @@
+[Unit]
+Description=day03: SCTP to TCP forwarding (IPv6)
+After=network.target
+
+[Service]
+Type=simple
+User=root
+ExecStart=/usr/bin/socat -d -d SCTP6-LISTEN:3,bind=[2001:41d0:701:1100::207c],reuseaddr,fork TCP:localhost:8003
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target
