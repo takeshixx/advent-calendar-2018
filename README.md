@@ -63,3 +63,6 @@ Gimme m0ar cyber funZ!1
     * run HTTP/HTTPS and SSH on the same port
         * probably just fork [this](https://github.com/draplater/tcpmux)
     * run HTTP/HTTPS and any other protocol on the same port?
+* HTTP Proxy that injects JavaScript snow into pages
+* SSH with layer 3 VPN routing
+    * HTTP server running on local IP address accessible via SSH layer 3 VPN
