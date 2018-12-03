@@ -40,3 +40,10 @@ And dump all memory into a file (e.g. if we switch to ASCII arts):
 ```bash
 python2 hb-test.py -p 4433 -f /tmp/xmasbleed localhost
 ```
+
+## Running
+
+```bash
+docker build -t day02_xmasbleed .
+docker run -d --restart=always -p 2:443 --name=day02 -v /etc/ssl/certs:/dhparam:ro -v /etc/letsencrypt/archive/xmas.rip:/certs:ro day02_xmasbleed
+```
