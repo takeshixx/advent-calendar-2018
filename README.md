@@ -8,6 +8,7 @@ Gimme m0ar cyber funZ!1
 | 1    | TCPMUX ([RFC1078](https://tools.ietf.org/html/rfc1078)) service: Assigned TCP port 1 by IANA ([RFC1700](https://tools.ietf.org/html/rfc1700)). | [tcpmux](tcpmux) 
 | 2    | XMASbleed (CVE-2014-0160): Heartbleed with christmas fun! | [xmasbleed](xmasbleed)
 | 3    | HTTPoSCTP: HTTP over SCTP, a poor man's implementation of [draft-natarajan-http-over-sctp-00.txt](https://tools.ietf.org/html/draft-natarajan-http-over-sctp-00). | [sctphttp](sctphttp)
+| 9    | BPF filter with magic keyword. C code will be provided. | [bpf](bpf)
 
 # Potential Challenges
 
@@ -16,7 +17,6 @@ Gimme m0ar cyber funZ!1
 * Shellcode generator mit Antwort einer billigen rechnung mov eax,1; add eax,2
 * X-JFAG
   * Serial interface. 2 Ports.. one reading the other writing
-* BPF port. Mit source code rausgeben wo ein spezielles Packet mit Scapy gesendet werden muss.
 * [QUIC](https://ma.ttias.be/googles-quic-protocol-moving-web-tcp-udp/)
     * Some implementations are available
         * [Playing with QUIC](https://www.chromium.org/quic/playing-with-quic)
