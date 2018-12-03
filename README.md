@@ -6,12 +6,12 @@ Gimme m0ar cyber funZ!1
 | Port | Challenge | Path |
 | ---- | --------- | ---- |
 | 1    | TCPMUX ([RFC1078](https://tools.ietf.org/html/rfc1078)) service: Assigned TCP port 1 by IANA ([RFC1700](https://tools.ietf.org/html/rfc1700)). | [tcpmux](tcpmux) 
-| 9    | XMASbleed (CVE-2014-0160): Heartbleed with christmas fun! | [xmasbleed](xmasbleed)
+| 2    | XMASbleed (CVE-2014-0160): Heartbleed with christmas fun! | [xmasbleed](xmasbleed)
+| 3    | HTTPoSCTP: HTTP over SCTP, a poor man's implementation of [draft-natarajan-http-over-sctp-00.txt](https://tools.ietf.org/html/draft-natarajan-http-over-sctp-00). | [sctphttp](sctphttp)
 
 # Potential Challenges
 
 * Websocket server mit ner Rechnung zum proggn für Lösung
-* SCTP Port
 * .net RPC interface
 * Shellcode generator mit Antwort einer billigen rechnung mov eax,1; add eax,2
 * X-JFAG
@@ -47,6 +47,8 @@ Gimme m0ar cyber funZ!1
         * should work by implementing a [low-level server](https://docs.aiohttp.org/en/stable/web_lowlevel.html#run-a-basic-low-level-server) with [loop.create_unix_server](https://docs.python.org/3/library/asyncio-eventloop.html#asyncio.loop.create_server) and socat.
         * maybe implement a loop.create_udp_server?
 * Port knocking sequenece - send TCP packet to 2018 first in order to make port accessible.
+    * Capture port knocking sequence in pcap
+    * Probably use sequence 4 8 15 16 23 42.
 * HTTP server that requires special user-agent and referrer header.
 * UDP port with DTLS
 * iptable/BPF rules with a pattern where useless/reserved/unnecessary bits have to be set or else the packets will be dropped.
