@@ -9,6 +9,7 @@ Gimme m0ar cyber funZ!1
 | 2    | XMASbleed (CVE-2014-0160): Heartbleed with christmas fun! | [xmasbleed](xmasbleed)
 | 3    | HTTPoSCTP: HTTP over SCTP, a poor man's implementation of [draft-natarajan-http-over-sctp-00.txt](https://tools.ietf.org/html/draft-natarajan-http-over-sctp-00). | [sctphttp](sctphttp)
 | 4    | KnockKnock: A webserver that is only accessible after knocking on TCP port sequence `42 23 16 15 8`. | [knockknock](knockknock)
+| 5    | HTTPS with Client Certificate: Accessing the webserver requires a client certificate that includes `christmas` in the Common Name field. | [tlsclientcert](tlsclientcert)
 | 9    | BPF filter with magic keyword. C code will be provided. | [bpf](bpf)
 
 # Potential Challenges
@@ -34,7 +35,6 @@ Gimme m0ar cyber funZ!1
     * any special cipher suites?
     * which clients are supported?
 * TLS with client cert
-    * requires specific CN
     * requires to be signed by Christmas Inc. CA
     * required different types of certs
 * IPv6
