@@ -10,6 +10,7 @@ Gimme m0ar cyber funZ!1
 | 3    | HTTPoSCTP: HTTP over SCTP, a poor man's implementation of [draft-natarajan-http-over-sctp-00.txt](https://tools.ietf.org/html/draft-natarajan-http-over-sctp-00). | [sctphttp](sctphttp)
 | 4    | KnockKnock: A webserver that is only accessible after knocking on TCP port sequence `42 23 16 15 8`. | [knockknock](knockknock)
 | 5    | HTTPS with Client Certificate: Accessing the webserver requires a client certificate that includes `christmas` in the Common Name field. | [tlsclientcert](tlsclientcert)
+| 6    | SERIAL Challenge. It is required to talk to two sockets. One read only and one write only. | [serial](serial)
 | 9    | BPF filter with magic keyword. C code will be provided. | [bpf](bpf)
 
 # Potential Challenges

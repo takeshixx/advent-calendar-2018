@@ -92,8 +92,8 @@ func main() {
 	if err != nil {
 		log.Fatal(err)
 	}
-	fmt.Println("The server2 is listening on Port 66")
-	listener2, err := net.Listen("tcp", "localhost:66")
+	fmt.Println("The server2 is listening on Port 666")
+	listener2, err := net.Listen("tcp", "localhost:666")
 	if err != nil {
 		log.Fatal(err)
 	}

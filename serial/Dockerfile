@@ -19,5 +19,5 @@ COPY serial.go .
 COPY success .
 
 EXPOSE 6
-EXPOSE 66
+EXPOSE 666
 CMD ["go", "run", "serial.go"]
