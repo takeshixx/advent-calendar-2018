@@ -88,12 +88,12 @@ func main() {
 
 	messages := make(map[string](chan string))
 	fmt.Println("The server is listening on Port 6")
-	listener, err := net.Listen("tcp", "localhost:6")
+	listener, err := net.Listen("tcp", "0.0.0.0:6")
 	if err != nil {
 		log.Fatal(err)
 	}
 	fmt.Println("The server2 is listening on Port 666")
-	listener2, err := net.Listen("tcp", "localhost:666")
+	listener2, err := net.Listen("tcp", "0.0.0.0:666")
 	if err != nil {
 		log.Fatal(err)
 	}
