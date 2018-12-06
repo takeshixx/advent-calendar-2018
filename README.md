@@ -18,8 +18,6 @@ Gimme m0ar cyber funZ!1
 * Websocket server mit ner Rechnung zum proggn für Lösung
 * .net RPC interface
 * Shellcode generator mit Antwort einer billigen rechnung mov eax,1; add eax,2
-* X-JFAG
-  * Serial interface. 2 Ports.. one reading the other writing
 * [QUIC](https://ma.ttias.be/googles-quic-protocol-moving-web-tcp-udp/)
     * Some implementations are available
         * [Playing with QUIC](https://www.chromium.org/quic/playing-with-quic)
@@ -27,7 +25,6 @@ Gimme m0ar cyber funZ!1
         * [quic-go](https://github.com/lucas-clemente/quic-go)
     * [HTTP over QUIC](https://tools.ietf.org/html/draft-ietf-quic-http-03)
         * it's a current draft, could be interesting to implement a poor man's version.
-* Port 0 Just for fun
 * TLS
     * with funny cipher suites
     * algorithms that are not widely supported
@@ -41,16 +38,19 @@ Gimme m0ar cyber funZ!1
 * IPv6
     * IPv6 only service
     * TLS port with client cert, requires IPv6 address in CN
-* HTTP server with **XMAS** method
+* Special HTTP server
+    * HTTP server with **XMAS** method
+    * HTTP server that requires special user-agent and referrer header.
 * JAVA RMI?
 * HTTP over UDP
     * Nginx/Apache with socat
     * probably implement UDP handler for aiohttp?
         * should work by implementing a [low-level server](https://docs.aiohttp.org/en/stable/web_lowlevel.html#run-a-basic-low-level-server) with [loop.create_unix_server](https://docs.python.org/3/library/asyncio-eventloop.html#asyncio.loop.create_server) and socat.
         * maybe implement a loop.create_udp_server?
-* HTTP server that requires special user-agent and referrer header.
 * UDP port with DTLS
 * iptable/BPF rules with a pattern where useless/reserved/unnecessary bits have to be set or else the packets will be dropped.
+    * Implement check for the [evil bit](https://blog.benjojo.co.uk/post/evil-bit-RFC3514-real-world-usage)
+    * Implement checks for reserved fields in TCP header
 * SSH server on TCP 22
     * Probably recompile sshd with [none cipher](https://serverfault.com/questions/116875/how-can-i-disable-encryption-on-openssh/606367#606367)
     * Restrict commands via authorized_keys file
