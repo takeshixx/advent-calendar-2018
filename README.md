@@ -12,6 +12,7 @@ Gimme m0ar cyber funZ!1
 | 5    | HTTPS with Client Certificate: Accessing the webserver requires a client certificate that includes `christmas` in the Common Name field. | [tlsclientcert](tlsclientcert)
 | 6    | SERIAL Challenge. It is required to talk to two sockets. One read only and one write only. | [serial](serial)
 | 7    | XMASHTTP: A webserver that implements a special **XMAS** HTTP method | [xmashttp](xmashttp)
+| 8    | TLS ChaCha: A HTTPS server that is only accessible with ChaCha20 based ciper suites. | [tlschacha](tlschacha)
 | 9    | BPF filter with magic keyword. C code will be provided. | [bpf](bpf)
 
 # Potential Challenges
