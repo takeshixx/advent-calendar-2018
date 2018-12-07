@@ -12,6 +12,7 @@ RUN git clone https://github.com/openssl/openssl.git && \
         ./config && \
         make -j2 && \
         make install || true
+RUN wget https://ftp.pcre.org/pub/pcre/pcre-8.42.tar.gz && tar xzvf pcre-8.42.tar.gz
 RUN git clone https://github.com/nginx/nginx.git && \
         cd nginx && \
         git checkout release-1.14.1 && \
@@ -28,7 +29,6 @@ RUN git clone https://github.com/nginx/nginx.git && \
             --without-http_map_module \
             --without-http_split_clients_module \
             --without-http_referer_module \
-            --without-http_rewrite_module \
             --without-http_proxy_module \
             --without-http_fastcgi_module \
             --without-http_uwsgi_module \
@@ -41,7 +41,8 @@ RUN git clone https://github.com/nginx/nginx.git && \
             --without-http_upstream_ip_hash_module \
             --without-http_upstream_least_conn_module \
             --without-http_upstream_keepalive_module \
-            --without-pcre \
+            --with-pcre=../pcre-8.42 \
+            --with-pcre-jit \
             --with-http_ssl_module \
             --with-openssl=/usr/src/app/openssl \
             --with-ld-opt="-L/usr/src/app/openssl" && \
