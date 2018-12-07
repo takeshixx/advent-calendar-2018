@@ -2,7 +2,7 @@ FROM ubuntu:18.04
 RUN \
   apt-get update && \
   apt-get -y upgrade && \
-  apt-get install -y build-essential git tree
+  apt-get install -y build-essential git wget
 WORKDIR /usr/src/app
 COPY openssl101f_xmasbleed.patch .
 RUN git clone https://github.com/openssl/openssl.git && \
