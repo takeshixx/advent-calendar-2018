@@ -11,6 +11,7 @@ Gimme m0ar cyber funZ!1
 | 4    | KnockKnock: A webserver that is only accessible after knocking on TCP port sequence `42 23 16 15 8`. | [knockknock](knockknock)
 | 5    | HTTPS with Client Certificate: Accessing the webserver requires a client certificate that includes `christmas` in the Common Name field. | [tlsclientcert](tlsclientcert)
 | 6    | SERIAL Challenge. It is required to talk to two sockets. One read only and one write only. | [serial](serial)
+| 7    | XMASHTTP: A webserver that implements a special **XMAS** HTTP method | [xmashttp](xmashttp))
 | 9    | BPF filter with magic keyword. C code will be provided. | [bpf](bpf)
 
 # Potential Challenges
@@ -39,7 +40,6 @@ Gimme m0ar cyber funZ!1
     * IPv6 only service
     * TLS port with client cert, requires IPv6 address in CN
 * Special HTTP server
-    * HTTP server with **XMAS** method
     * HTTP server that requires special user-agent and referrer header.
 * JAVA RMI?
 * HTTP over UDP
