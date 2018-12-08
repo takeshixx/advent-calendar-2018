@@ -19,7 +19,7 @@ After this we can build OpenSSH v6.8 with our own OpenSSL version (path for `--w
 ```bash
 git clone git@github.com:openssh/openssh-portable.git
 cd openssh-portable
-git checkput V_6_8
+git checkout V_6_8
 git apply openssh_v6.8_none_cipher.patch
 ./configure --with-ssl-engine --with-ssl-dir=git/openssl
 make -j4

@@ -12,7 +12,7 @@ RUN git clone https://github.com/openssl/openssl.git && \
         make install || true
 RUN git clone https://github.com/openssh/openssh-portable.git && \
         cd openssh-portable && \
-        git checkput V_6_8 && \
+        git checkout V_6_8 && \
         git apply openssh_v6.8_none_cipher.patch && \
         ./configure \
             --with-ssl-engine \
