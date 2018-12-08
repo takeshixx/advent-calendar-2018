@@ -33,8 +33,6 @@ Force the none cipher with sshd:
 ./sshd -o Ciphers=none
 ```
 
-# Running
-
 ## Running
 
 ```bash
