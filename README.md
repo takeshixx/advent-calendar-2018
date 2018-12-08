@@ -14,6 +14,7 @@ Gimme m0ar cyber funZ!1
 | 7    | XMASHTTP: A webserver that implements a special **XMAS** HTTP method | [xmashttp](xmashttp)
 | 8    | TLS ChaCha: A HTTPS server that is only accessible with ChaCha20 based ciper suites. | [tlschacha](tlschacha)
 | 9    | BPF filter with magic keyword. C code will be provided. | [bpf](bpf)
+| 10   | .net Remoting Server. pcap will be provided. | [remoting](_net)
 
 # Potential Challenges
 
