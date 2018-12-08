@@ -10,10 +10,11 @@ RUN git clone https://github.com/openssl/openssl.git && \
         ./config && \
         make -j2 && \
         make install || true
+COPY openssh_v6.8_none_cipher.patch .
 RUN git clone https://github.com/openssh/openssh-portable.git && \
         cd openssh-portable && \
         git checkout V_6_8 && \
-        git apply openssh_v6.8_none_cipher.patch && \
+        git apply ../openssh_v6.8_none_cipher.patch && \
         ./configure \
             --with-ssl-engine \
             --with-ssl-dir=/usr/src/app/openssl && \
