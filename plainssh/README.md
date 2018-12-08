@@ -2,7 +2,7 @@
 
 A patched OpenSSH v6.8 server that supports (forces) the none cipher a.k.a. plaintext transmission.
 
-# Building
+## Building
 
 OpenSSH does not support OpenSSL v1.1.1 yet, so we need some older version:
 
@@ -25,10 +25,19 @@ git apply openssh_v6.8_none_cipher.patch
 make -j4
 ```
 
-# Running
+## Testing
 
 Force the none cipher with sshd:
 
 ```bash
 ./sshd -o Ciphers=none
+```
+
+# Running
+
+## Running
+
+```bash
+docker build -t day11_plainssh .
+docker run -d --restart=always -p 11:22 --name=day11 day11_plainssh
 ```
