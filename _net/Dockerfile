@@ -21,4 +21,4 @@ RUN make
 COPY success .
 
 EXPOSE 10
-CMD ["mono ./Server.exe"]
+CMD ["mono", "./Server.exe"]
