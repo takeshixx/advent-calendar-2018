@@ -15,6 +15,7 @@ Gimme m0ar cyber funZ!1
 | 8    | TLS ChaCha: A HTTPS server that is only accessible with ChaCha20 based ciper suites. | [tlschacha](tlschacha)
 | 9    | BPF filter with magic keyword. C code will be provided. | [bpf](bpf)
 | 10   | .net Remoting Server. pcap will be provided. | [remoting](remoting)
+| 11   | PlainSSH: A patched OpenSSH server that only allows connections with "none" ciphers. Requires a patched OpenSSH client, maybe provide patch for OpenSSH v6.8. | [plainssh](plainssh)
 
 ## Potential Challenges
 
@@ -53,9 +54,6 @@ Gimme m0ar cyber funZ!1
 * iptable/BPF rules with a pattern where useless/reserved/unnecessary bits have to be set or else the packets will be dropped.
     * Implement check for the [evil bit](https://blog.benjojo.co.uk/post/evil-bit-RFC3514-real-world-usage)
     * Implement checks for reserved fields in TCP header
-* SSH server on TCP 22
-    * Probably recompile sshd with [none cipher](https://serverfault.com/questions/116875/how-can-i-disable-encryption-on-openssh/606367#606367)
-    * Restrict commands via authorized_keys file
 * Message Send Procotol 2 on TCP 18 ([RFC1312](https://tools.ietf.org/html/rfc1312))
     * Message Send Protocol ([RFC1159](https://tools.ietf.org/html/rfc1159))
     * On [Wikipedia](https://en.wikipedia.org/wiki/Message_Send_Protocol)
