@@ -13,7 +13,7 @@ Gimme m0ar cyber funZ!1
 | 6    | SERIAL Challenge. It is required to talk to two sockets. One read only and one write only. | [serial](serial)
 | 7    | XMASHTTP: A webserver that implements a special **XMAS** HTTP method | [xmashttp](xmashttp)
 | 8    | TLS ChaCha: A HTTPS server that is only accessible with ChaCha20 based ciper suites. | [tlschacha](tlschacha)
-| 9    | eBPF filter with magic keyword. C code will be provided. | [ebpf](bpf)
+| 9    | eBPF filter with magic keyword. C code will be provided. | [ebpf](ebpf)
 | 10   | .NET Remoting Server. pcap will be provided. | [remoting](remoting)
 | 11   | PlainSSH: A patched OpenSSH server that only allows connections with "none" ciphers. Requires a patched OpenSSH client, maybe provide patch for OpenSSH v6.8. | [plainssh](plainssh)
 
