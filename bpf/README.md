@@ -6,7 +6,7 @@ A simple ([eBPF](https://lwn.net/Articles/740157/)) Service which filters on a r
 
 ```bash
 docker build -t day09_ebpf .
-docker run -d --restart=always -p 9:9 --name=day09 day09_ebpf
+docker run --privileged -d --restart=always -p 9:9 --name=day09 day09_ebpf
 ```
 
 ## Solution
