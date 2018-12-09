@@ -20,7 +20,6 @@ Gimme m0ar cyber funZ!1
 ## Potential Challenges
 
 * Webapp with websockets
-* .net RPC interface
 * Shellcode generator mit Antwort einer billigen rechnung mov eax,1; add eax,2
 * [QUIC](https://ma.ttias.be/googles-quic-protocol-moving-web-tcp-udp/)
     * Some implementations are available
@@ -30,15 +29,14 @@ Gimme m0ar cyber funZ!1
     * [HTTP over QUIC](https://tools.ietf.org/html/draft-ietf-quic-http-03)
         * it's a current draft, could be interesting to implement a poor man's version.
 * TLS
-    * with funny cipher suites
-    * algorithms that are not widely supported
+    * algorithms that are not widely supported/used, maybe PSK cipher suites.
 * TLS-SRP
 * TLSv1.3
     * any special cipher suites?
     * which clients are supported?
 * TLS with client cert
     * requires to be signed by Christmas Inc. CA
-    * required different types of certs
+    * required different types of certs?
 * IPv6
     * IPv6 only service
     * TLS port with client cert, requires IPv6 address in CN
