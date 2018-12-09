@@ -1,7 +1,7 @@
 # Advent Calendar of Advanced Cyber Fun 2018
 Gimme m0ar cyber funZ!1
 
-# Agenda
+## Agenda
 
 | Port | Challenge | Path |
 | ---- | --------- | ---- |
@@ -14,9 +14,9 @@ Gimme m0ar cyber funZ!1
 | 7    | XMASHTTP: A webserver that implements a special **XMAS** HTTP method | [xmashttp](xmashttp)
 | 8    | TLS ChaCha: A HTTPS server that is only accessible with ChaCha20 based ciper suites. | [tlschacha](tlschacha)
 | 9    | BPF filter with magic keyword. C code will be provided. | [bpf](bpf)
-| 10   | .net Remoting Server. pcap will be provided. | [remoting](_net)
+| 10   | .net Remoting Server. pcap will be provided. | [remoting](remoting)
 
-# Potential Challenges
+## Potential Challenges
 
 * Webapp with websockets
 * .net RPC interface
@@ -67,3 +67,22 @@ Gimme m0ar cyber funZ!1
 * HTTP Proxy that injects JavaScript snow into pages
 * SSH with layer 3 VPN routing
     * HTTP server running on local IP address accessible via SSH layer 3 VPN
+
+## Development Setup
+
+Create a development VM with pre-installed Docker:
+
+```bash
+vagrant up
+vagrant ssh
+```
+
+Within the VM, you can build the Docker containers:
+
+```bash
+cd /vagrant/tcpmux
+sudo docker build -t day01_tcpmux .
+sudp docker run -d --restart=always -p 1:1 --name=day01 day01_tcpmux
+```
+
+The VM creates a second host-only interface by default, which should expose the services.

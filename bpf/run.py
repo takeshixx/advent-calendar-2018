@@ -11,7 +11,6 @@ import time
 from scapy.all import Ether, IP, UDP, Raw
 import logging
 import threading
-import IPython
 #logging.basicConfig(filename='bpf.log',level=logging.DEBUG)
 logging.basicConfig(level=logging.DEBUG)
 
