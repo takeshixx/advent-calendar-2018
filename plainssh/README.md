@@ -30,12 +30,18 @@ make -j4
 Force the none cipher with sshd:
 
 ```bash
-./sshd -o Ciphers=none
+./sshd -D -o Ciphers=none
+```
+
+With a compatible client:
+
+```bash
+ssh -o Ciphers=none -p 11 santa@xmas.rip
 ```
 
 ## Running
 
 ```bash
 docker build -t day11_plainssh .
-docker run -d --restart=always -p 11:22 --name=day11 day11_plainssh
+docker run -d --restart=always -p 11:2222 --name=day11 day11_plainssh
 ```
