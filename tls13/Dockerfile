@@ -45,13 +45,10 @@ RUN git clone https://github.com/nginx/nginx.git && \
             --with-openssl=/usr/src/app/openssl \
             --with-ld-opt="-L/usr/src/app/openssl" \
             --with-openssl-opt=enable-tls1_3 && \
-        make && \
+        make -j2 && \
         make install
 COPY nginx.conf /etc/nginx/nginx.conf
-RUN mkdir web
-COPY index.html web
 RUN mkdir -p /var/log/nginx
 RUN touch /var/log/nginx/access.log
 RUN touch /var/log/nginx/error.log
 CMD ["/usr/src/app/nginx/objs/nginx", "-c", "/etc/nginx/nginx.conf", "-g", "daemon off;"]
-
