@@ -16,6 +16,7 @@ Gimme m0ar cyber funZ!1
 | 9    | eBPF filter with magic keyword. C code will be provided. | [ebpf](ebpf)
 | 10   | .NET Remoting Server. pcap will be provided. | [remoting](remoting)
 | 11   | PlainSSH: A patched OpenSSH server that only allows connections with "none" ciphers. Requires a patched OpenSSH client, maybe provide patch for OpenSSH v6.8. | [plainssh](plainssh)
+| 12   | TLS13: A HTTPS server that only supports TLSv1.3. | [tls13](tls13)
 
 ## Potential Challenges
 
@@ -31,9 +32,6 @@ Gimme m0ar cyber funZ!1
 * TLS
     * algorithms that are not widely supported/used, maybe PSK cipher suites.
 * TLS-SRP
-* TLSv1.3
-    * any special cipher suites?
-    * which clients are supported?
 * TLS with client cert
     * requires to be signed by Christmas Inc. CA
     * required different types of certs?
