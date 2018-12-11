@@ -6,28 +6,28 @@ Gimme m0ar cyber funZ!1
 | Port | Challenge | Path |
 | ---- | --------- | ---- |
 | 1    | TCPMUX ([RFC1078](https://tools.ietf.org/html/rfc1078)) service: Assigned TCP port 1 by IANA ([RFC1700](https://tools.ietf.org/html/rfc1700)). | [tcpmux](tcpmux) 
-| 2    | XMASbleed (CVE-2014-0160): Heartbleed with christmas fun! | [xmasbleed](xmasbleed)
+| **2**    | XMASbleed (CVE-2014-0160): Heartbleed with christmas fun! | [xmasbleed](xmasbleed)
 | 3    | HTTPoSCTP: HTTP over SCTP, a poor man's implementation of [draft-natarajan-http-over-sctp-00.txt](https://tools.ietf.org/html/draft-natarajan-http-over-sctp-00). | [sctphttp](sctphttp)
 | 4    | KnockKnock: A webserver that is only accessible after knocking on TCP port sequence `42 23 16 15 8`. | [knockknock](knockknock)
 | 5    | HTTPS with Client Certificate: Accessing the webserver requires a client certificate that includes `christmas` in the Common Name field. | [tlsclientcert](tlsclientcert)
 | 6    | SERIAL Challenge. It is required to talk to two sockets. One read only and one write only. | [serial](serial)
 | 7    | XMASHTTP: A webserver that implements a special **XMAS** HTTP method | [xmashttp](xmashttp)
 | 8    | TLS ChaCha: A HTTPS server that is only accessible with ChaCha20 based ciper suites. | [tlschacha](tlschacha)
-| 9    | eBPF filter with magic keyword. C code will be provided. | [ebpf](ebpf)
+| **9**    | eBPF filter with magic keyword. C code will be provided. | [ebpf](ebpf)
 | 10   | .NET Remoting Server. pcap will be provided. | [remoting](remoting)
 | 11   | PlainSSH: A patched OpenSSH server that only allows connections with "none" ciphers. Requires a patched OpenSSH client, maybe provide patch for OpenSSH v6.8. | [plainssh](plainssh)
 | 12   | TLS13: A HTTPS server that only supports TLSv1.3. | [tls13](tls13)
 | 13   | TBD | TBD
 | 14   | TBD | TBD
 | 15   | TBD | TBD
-| 16   | TBD | TBD
+| **16**   | TBD | TBD
 | 17   | TBD | TBD
 | 18   | Message Send Procotol 2: Python implementation of [RFC1312](https://tools.ietf.org/html/rfc1312). Users need to send a message to a specific user with a signature. Code for signature creation/checking will be provided? | TBD
 | 19   | TBD | TBD
 | 20   | TBD | TBD
 | 21   | TBD | TBD
 | 22   | TBD | TBD
-| 23   | SSH Layer 3 VPN: A internal host that is only accessible from local IP address via layer 3 VPN. | TBD
+| **23**   | SSH Layer 3 VPN: A internal host that is only accessible from local IP address via layer 3 VPN. | TBD
 | 24   | TBD | TBD
 
 ## Potential Challenges
