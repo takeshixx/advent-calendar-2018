@@ -68,6 +68,11 @@ Gimme m0ar cyber funZ!1
         * probably just fork [this](https://github.com/draplater/tcpmux)
     * run HTTP/HTTPS and any other protocol on the same port?
 * HTTP Proxy that injects JavaScript snow into pages
+* Port Hunter
+    * A service that just prints a port number which will be opened temporarily.
+    * Port wil change every several seconds.
+    * Users will have to automate it: connect to main port, fetch the port number, connect to the second port.
+    * Could include multiple protocols like TCP/UDP/SCTP.
 
 ## Development Setup
 
