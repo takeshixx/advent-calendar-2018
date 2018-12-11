@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Runtime.Remoting;
 using System.Runtime.Remoting.Channels;
@@ -29,6 +30,7 @@ namespace RemotingSample
       // register the remoteObject servicetype
       RemotingConfiguration.RegisterWellKnownServiceType(remoteObject);
 
+      Thread.Sleep(Timeout.Infinite);
       Console.WriteLine("Registered service");
       Console.WriteLine("Press any key to exit");
       Console.ReadLine();
