@@ -17,6 +17,8 @@ Gimme m0ar cyber funZ!1
 | 10   | .NET Remoting Server. pcap will be provided. | [remoting](remoting)
 | 11   | PlainSSH: A patched OpenSSH server that only allows connections with "none" ciphers. Requires a patched OpenSSH client, maybe provide patch for OpenSSH v6.8. | [plainssh](plainssh)
 | 12   | TLS13: A HTTPS server that only supports TLSv1.3. | [tls13](tls13)
+| 18   | Message Send Procotol 2: Python implementation of [RFC1312](https://tools.ietf.org/html/rfc1312). Users need to send a message to a specific user with a signature. Code for signature creation/checking will be provided? |
+| 23   | SSH Layer 3 VPN: A internal host that is only accessible from local IP address via layer 3 VPN. |
 
 ## Potential Challenges
 
@@ -50,17 +52,11 @@ Gimme m0ar cyber funZ!1
 * iptable/BPF rules with a pattern where useless/reserved/unnecessary bits have to be set or else the packets will be dropped.
     * Implement check for the [evil bit](https://blog.benjojo.co.uk/post/evil-bit-RFC3514-real-world-usage)
     * Implement checks for reserved fields in TCP header
-* Message Send Procotol 2 on TCP 18 ([RFC1312](https://tools.ietf.org/html/rfc1312))
-    * Message Send Protocol ([RFC1159](https://tools.ietf.org/html/rfc1159))
-    * On [Wikipedia](https://en.wikipedia.org/wiki/Message_Send_Protocol)
-    * Supports COOKIE (UDP) and SIGNATURE
 * TCP multiplexer
     * run HTTP/HTTPS and SSH on the same port
         * probably just fork [this](https://github.com/draplater/tcpmux)
     * run HTTP/HTTPS and any other protocol on the same port?
 * HTTP Proxy that injects JavaScript snow into pages
-* SSH with layer 3 VPN routing
-    * HTTP server running on local IP address accessible via SSH layer 3 VPN
 
 ## Development Setup
 
