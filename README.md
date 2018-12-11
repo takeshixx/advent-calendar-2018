@@ -59,7 +59,8 @@ Gimme m0ar cyber funZ!1
     * probably implement UDP handler for aiohttp?
         * should work by implementing a [low-level server](https://docs.aiohttp.org/en/stable/web_lowlevel.html#run-a-basic-low-level-server) with [loop.create_unix_server](https://docs.python.org/3/library/asyncio-eventloop.html#asyncio.loop.create_server) and socat.
         * maybe implement a loop.create_udp_server?
-* UDP port with DTLS
+* DNS over DTLS ([RFC8094](https://tools.ietf.org/html/rfc8094))
+    A poor mans implementation of providing DNS via a DTLS proxy.
 * iptable/BPF rules with a pattern where useless/reserved/unnecessary bits have to be set or else the packets will be dropped.
     * Implement check for the [evil bit](https://blog.benjojo.co.uk/post/evil-bit-RFC3514-real-world-usage)
     * Implement checks for reserved fields in TCP header
