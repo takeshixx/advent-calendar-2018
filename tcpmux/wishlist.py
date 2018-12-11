@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 import sys
+import time
 ascii_art = """                  _..._
                 ,'     `.
                Y        |
@@ -29,7 +30,10 @@ print('A new wishlist has been created for you.')
 print('Please add new items to your list, or write KKTHXBYE to finish your list:')
 sys.stdout.flush()
 wishlist = []
+timeout = time.time() + 60 * 1
 while True:
+    if time.time() > timeout:
+        break
     item = sys.stdin.readline().strip()
     if item == 'KKTHXBYE':
         break
