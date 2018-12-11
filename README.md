@@ -45,14 +45,15 @@ Gimme m0ar cyber funZ!1
     * algorithms that are not widely supported/used, maybe PSK cipher suites.
 * TLS-SRP
 * TLS with client cert
-    * requires to be signed by Christmas Inc. CA
-    * required different types of certs?
+    * requires to be signed by an official CA and do other checks. only publish the code.
 * IPv6
     * IPv6 only service
     * TLS port with client cert, requires IPv6 address in CN
 * Special HTTP server
     * HTTP server that requires special user-agent and referrer header.
-* JAVA RMI?
+* JAVA RMI
+    * A simple remote interface where users have to implement a simple client that calls a function.
+    * Just slightly change the [Hello World](https://docs.oracle.com/javase/8/docs/technotes/guides/rmi/hello/hello-world.html) example.
 * HTTP over UDP
     * Nginx/Apache with socat
     * probably implement UDP handler for aiohttp?
