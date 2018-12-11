@@ -17,8 +17,18 @@ Gimme m0ar cyber funZ!1
 | 10   | .NET Remoting Server. pcap will be provided. | [remoting](remoting)
 | 11   | PlainSSH: A patched OpenSSH server that only allows connections with "none" ciphers. Requires a patched OpenSSH client, maybe provide patch for OpenSSH v6.8. | [plainssh](plainssh)
 | 12   | TLS13: A HTTPS server that only supports TLSv1.3. | [tls13](tls13)
-| 18   | Message Send Procotol 2: Python implementation of [RFC1312](https://tools.ietf.org/html/rfc1312). Users need to send a message to a specific user with a signature. Code for signature creation/checking will be provided? |
-| 23   | SSH Layer 3 VPN: A internal host that is only accessible from local IP address via layer 3 VPN. |
+| 13   | TBD | TBD
+| 14   | TBD | TBD
+| 15   | TBD | TBD
+| 16   | TBD | TBD
+| 17   | TBD | TBD
+| 18   | Message Send Procotol 2: Python implementation of [RFC1312](https://tools.ietf.org/html/rfc1312). Users need to send a message to a specific user with a signature. Code for signature creation/checking will be provided? | TBD
+| 19   | TBD | TBD
+| 20   | TBD | TBD
+| 21   | TBD | TBD
+| 22   | TBD | TBD
+| 23   | SSH Layer 3 VPN: A internal host that is only accessible from local IP address via layer 3 VPN. | TBD
+| 24   | TBD | TBD
 
 ## Potential Challenges
 
