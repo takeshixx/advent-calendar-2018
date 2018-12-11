@@ -27,6 +27,7 @@ RUN mkdir /var/empty || true
 RUN useradd -m santa
 RUN usermod --password "\$6\$xmas\$xYqOoLcl9Ew0acHPI69OhpPuLfpCiEzEzpSKrR0f1.09oKP94kVB43M93P2hCmmi49q99a6izW6HevK9YZjM91" santa
 COPY ssh_host* /usr/local/etc/
+RUN chmod 600 /usr/local/etc/ssh_host*
 COPY sshd_config /usr/local/etc/sshd_config
 COPY ascii /home/santa/ascii
 COPY wrapper.sh /home/santa/wrapper.sh
