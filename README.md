@@ -54,11 +54,6 @@ Gimme m0ar cyber funZ!1
 * JAVA RMI
     * A simple remote interface where users have to implement a simple client that calls a function.
     * Just slightly change the [Hello World](https://docs.oracle.com/javase/8/docs/technotes/guides/rmi/hello/hello-world.html) example.
-* HTTP over UDP
-    * Nginx/Apache with socat
-    * probably implement UDP handler for aiohttp?
-        * should work by implementing a [low-level server](https://docs.aiohttp.org/en/stable/web_lowlevel.html#run-a-basic-low-level-server) with [loop.create_unix_server](https://docs.python.org/3/library/asyncio-eventloop.html#asyncio.loop.create_server) and socat.
-        * maybe implement a loop.create_udp_server?
 * DNS over DTLS ([RFC8094](https://tools.ietf.org/html/rfc8094))
     * A poor mans implementation of providing DNS via a DTLS proxy.
 * iptable/BPF rules with a pattern where useless/reserved/unnecessary bits have to be set or else the packets will be dropped.
