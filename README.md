@@ -18,7 +18,7 @@ Gimme m0ar cyber funZ!1
 | 11   | PlainSSH: A patched OpenSSH server that only allows connections with "none" ciphers. Requires a patched OpenSSH client, maybe provide patch for OpenSSH v6.8. | [plainssh](plainssh)
 | 12   | TLS13: A HTTPS server that only supports TLSv1.3. | [tls13](tls13)
 | 13   | TCPReserved: A service that is only accessible when the reserved bits in the TCP header are set. Similar to [evil bit](https://blog.benjojo.co.uk/post/evil-bit-RFC3514-real-world-usage) but on layer 4. | [reservedbits](reservedbits)
-| 14   | TBD | TBD
+| 14   | TLS-SRP: A Nginx HTTPS server that only supports TLS-SRP with a weak password. | [tlssrp](tlssrp)
 | 15   | XMASSSHHTTP: A TCP multiplexer port that runs HTTPS and SSH. | [xmassshhttp](xmassshhttp)
 | **16**   | TBD | TBD
 | 17   | TBD | TBD
@@ -42,7 +42,6 @@ Gimme m0ar cyber funZ!1
         * it's a current draft, could be interesting to implement a poor man's version.
 * TLS
     * algorithms that are not widely supported/used, maybe PSK cipher suites.
-* TLS-SRP
 * TLS with client cert
     * requires to be signed by an official CA and do other checks. only publish the code.
 * Special HTTP server
