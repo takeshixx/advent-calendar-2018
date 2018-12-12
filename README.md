@@ -33,7 +33,6 @@ Gimme m0ar cyber funZ!1
 ## Potential Challenges
 
 * Webapp with websockets
-* Shellcode generator mit Antwort einer billigen rechnung mov eax,1; add eax,2
 * [QUIC](https://ma.ttias.be/googles-quic-protocol-moving-web-tcp-udp/)
     * Some implementations are available
         * [Playing with QUIC](https://www.chromium.org/quic/playing-with-quic)
