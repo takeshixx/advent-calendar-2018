@@ -5,6 +5,6 @@ A HTTP server that uses TLS-SRP. Clients can only connect with the proper userna
 ## Running
 
 ```bash
-docker build -t day03_tlssrp .
-docker run -d --restart=always -p 3:443 --name=day03 day03_tlssrp
+docker build -t day14_tlssrp .
+docker run -d --restart=always -p 14:8080 --name=day14 -v /etc/ssl/certs:/dhparam:ro -v /etc/letsencrypt/archive/xmas.rip:/certs:ro day14_tlssrp
 ```

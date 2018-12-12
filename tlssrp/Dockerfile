@@ -2,7 +2,7 @@ FROM ubuntu:18.04
 RUN \
   apt-get update && \
   apt-get -y upgrade && \
-  apt-get install -y apache2
+  apt-get install -y nginx
 WORKDIR /usr/src/app
 COPY passwd.xmas .
 COPY passwd.xmas.attr .
