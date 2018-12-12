@@ -1,6 +1,6 @@
 # TCP Reserved Bits
 
-Iptables rule that drops packets where the TCP reserved bits are not set.
+Iptables rule that drops packets where the TCP reserved bits are not set. The iptables rule will redirect packets from external facing TCP port 13 to TCP port 1313 which is binded to localhost. After the TCP handshake (all SYN, SYN/ACK and ACK need reserved bits set) the secret will be sent back to the client without further interaction.
 
 ## Configuration
 
