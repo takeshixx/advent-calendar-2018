@@ -46,9 +46,6 @@ Gimme m0ar cyber funZ!1
 * TLS-SRP
 * TLS with client cert
     * requires to be signed by an official CA and do other checks. only publish the code.
-* IPv6
-    * IPv6 only service
-    * TLS port with client cert, requires IPv6 address in CN
 * Special HTTP server
     * HTTP server that requires special user-agent and referrer header.
 * JAVA RMI
