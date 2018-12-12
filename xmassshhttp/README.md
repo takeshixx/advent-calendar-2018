@@ -1,5 +1,7 @@
 # SSH and HTTPS with TCPMUX
 
+A TCP multiplexer port that runs HTTPS and SSH. HTTPS will give a hint about SSH, secret is only available via SSH. Login with *santa*:*santa*.
+
 ## Running
 
 ```bash
