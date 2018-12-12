@@ -17,7 +17,7 @@ Gimme m0ar cyber funZ!1
 | 10   | .NET Remoting Server. pcap will be provided. | [remoting](remoting)
 | 11   | PlainSSH: A patched OpenSSH server that only allows connections with "none" ciphers. Requires a patched OpenSSH client, maybe provide patch for OpenSSH v6.8. | [plainssh](plainssh)
 | 12   | TLS13: A HTTPS server that only supports TLSv1.3. | [tls13](tls13)
-| 13   | TBD | TBD
+| 13   | TCPReserved: A service that is only accessible when the reserved bits in the TCP header are set. Similar to [evil bit](https://blog.benjojo.co.uk/post/evil-bit-RFC3514-real-world-usage) but on layer 4. | [reservedbits](reservedbits)
 | 14   | TBD | TBD
 | 15   | TBD | TBD
 | **16**   | TBD | TBD
@@ -56,9 +56,6 @@ Gimme m0ar cyber funZ!1
     * Just slightly change the [Hello World](https://docs.oracle.com/javase/8/docs/technotes/guides/rmi/hello/hello-world.html) example.
 * DNS over DTLS ([RFC8094](https://tools.ietf.org/html/rfc8094))
     * A poor mans implementation of providing DNS via a DTLS proxy.
-* iptable/BPF rules with a pattern where useless/reserved/unnecessary bits have to be set or else the packets will be dropped.
-    * Implement check for the [evil bit](https://blog.benjojo.co.uk/post/evil-bit-RFC3514-real-world-usage)
-    * Implement checks for reserved fields in TCP header
 * TCP multiplexer
     * run HTTP/HTTPS and SSH on the same port
         * probably just fork [this](https://github.com/draplater/tcpmux)
