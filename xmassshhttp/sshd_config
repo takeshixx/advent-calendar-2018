@@ -1,0 +1,16 @@
+PermitRootLogin no
+StrictModes yes
+MaxSessions 100
+PubkeyAuthentication no
+PasswordAuthentication yes
+PermitEmptyPasswords no
+ChallengeResponseAuthentication yes
+AllowAgentForwarding no
+AllowTcpForwarding no
+X11Forwarding no
+PermitTunnel no
+PrintMotd no
+PermitTTY no
+AllowUsers santa
+Match User santa
+  ForceCommand /home/santa/wrapper.sh
