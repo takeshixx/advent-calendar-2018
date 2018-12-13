@@ -32,7 +32,6 @@ Gimme m0ar cyber funZ!1
 
 ## Potential Challenges
 
-* Webapp with websockets
 * [QUIC](https://ma.ttias.be/googles-quic-protocol-moving-web-tcp-udp/)
     * Some implementations are available
         * [Playing with QUIC](https://www.chromium.org/quic/playing-with-quic)
