@@ -16,7 +16,7 @@ def on_close(ws):
 
 def on_open(ws):
     def run(*args):
-        ws.send("Hello %d" % i)
+        ws.send("Hello")
         time.sleep(1)
 	ws.send("XMAS2018")
         time.sleep(3)

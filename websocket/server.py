@@ -6,7 +6,8 @@ def new_client(client, server):
 
 def message(client, server, message):
         if message == "XMAS2018":
-            server.send_message(client, "YOU DID IT")
+            success = open("./success", "rb").read()
+            server.send_message(client, success)
         else:
             server.send_message(client, "Oh oh you didn´t said the magic word XMAS2018")
 
