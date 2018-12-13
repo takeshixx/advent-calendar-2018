@@ -1,4 +1,4 @@
-# eBPF Service
+# Websocket Service
 
 A simple ([websocket](websocket)) Service. To solve the challenge, you need to write a short client to talk to the websocket port.
 
