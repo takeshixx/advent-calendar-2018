@@ -16,6 +16,4 @@ WORKDIR /usr/src/app
 COPY server.py .
 RUN chmod +x server.py
 COPY success .
-
-EXPOSE 17
 CMD ["python3", "/usr/src/app/server.py"]
