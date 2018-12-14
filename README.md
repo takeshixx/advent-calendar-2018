@@ -21,7 +21,7 @@ Gimme m0ar cyber funZ!1
 | 14   | XMASSSHHTTP: A TCP multiplexer port that runs HTTPS and SSH. | [xmassshhttp](xmassshhttp)
 | 15   | TBD | TBD
 | **16**   | TBD | TBD
-| 17   | TBD | TBD
+| 17   | A websocket Server which needs a specific input to print the success message | [websocket](websocket)
 | 18   | Message Send Procotol 2: Python implementation of [RFC1312](https://tools.ietf.org/html/rfc1312). Users need to send a message to a specific user with a signature. Code for signature creation/checking will be provided? | TBD
 | 19   | TBD | TBD
 | 20   | TBD | TBD
@@ -32,7 +32,6 @@ Gimme m0ar cyber funZ!1
 
 ## Potential Challenges
 
-* Webapp with websockets
 * [QUIC](https://ma.ttias.be/googles-quic-protocol-moving-web-tcp-udp/)
     * Some implementations are available
         * [Playing with QUIC](https://www.chromium.org/quic/playing-with-quic)
