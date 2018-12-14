@@ -18,8 +18,8 @@ Gimme m0ar cyber funZ!1
 | 11   | PlainSSH: A patched OpenSSH server that only allows connections with "none" ciphers. Requires a patched OpenSSH client, maybe provide patch for OpenSSH v6.8. | [plainssh](plainssh)
 | 12   | TLS13: A HTTPS server that only supports TLSv1.3. | [tls13](tls13)
 | 13   | TCPReserved: A service that is only accessible when the reserved bits in the TCP header are set. Similar to [evil bit](https://blog.benjojo.co.uk/post/evil-bit-RFC3514-real-world-usage) but on layer 4. | [reservedbits](reservedbits)
-| 14   | TLS-SRP: A Nginx HTTPS server that only supports TLS-SRP with a weak password. | [tlssrp](tlssrp)
-| 15   | XMASSSHHTTP: A TCP multiplexer port that runs HTTPS and SSH. | [xmassshhttp](xmassshhttp)
+| 14   | XMASSSHHTTP: A TCP multiplexer port that runs HTTPS and SSH. | [xmassshhttp](xmassshhttp)
+| 15   | TBD | TBD
 | **16**   | TBD | TBD
 | 17   | TBD | TBD
 | 18   | Message Send Procotol 2: Python implementation of [RFC1312](https://tools.ietf.org/html/rfc1312). Users need to send a message to a specific user with a signature. Code for signature creation/checking will be provided? | TBD
