@@ -14,7 +14,7 @@ def message(client, server, message):
 def client_left(client, server):
 	print("Client(%d) disconnected" % client['id'])
 
-server = WebsocketServer(17, host='0.0.0.0', loglevel=logging.INFO)
+server = WebsocketServer(15, host='0.0.0.0', loglevel=logging.INFO)
 server.set_fn_new_client(new_client)
 server.set_fn_client_left(client_left)
 server.set_fn_message_received(message)

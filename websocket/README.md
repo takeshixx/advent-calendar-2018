@@ -5,8 +5,8 @@ A simple ([websocket](websocket)) Service. To solve the challenge, you need to w
 ## Building & Running
 
 ```bash
-docker build -t day17_websocket .
-docker run -d --restart=always -p 17:17 --name=day17 day17_websocket
+docker build -t day15_websocket .
+docker run -d --restart=always -p 15:15 --name=day15 day15_websocket
 ```
 
 ## Solution
