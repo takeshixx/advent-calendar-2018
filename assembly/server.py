@@ -57,7 +57,7 @@ def check_answer(answer, result):
         return False
     try:
         if answer.startswith("0x"):
-            answer = int(data, 16)
+            answer = int(answer, 16)
         if int(answer) == result:
             return True
         else:
