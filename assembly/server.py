@@ -1,5 +1,5 @@
 from __future__ import print_function
-from keystone-engine import *
+from keystone import *
 from unicorn import *
 from unicorn.x86_const import *
 import array
