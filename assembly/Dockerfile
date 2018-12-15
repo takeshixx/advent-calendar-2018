@@ -8,7 +8,7 @@ RUN \
 RUN \
   apt-get update && \
   apt-get -y upgrade && \
-  apt-get install -y python python-pip && \
+  apt-get install -y python2.7-dev python2.7-pip && \
   pip install unicorn keystone
 
 
