@@ -21,6 +21,9 @@ RUN \
 	../make-share.sh && \
 	make install && \
 	ldconfig
+
+RUN \
+	pip install unicorn
 	
 	
 
