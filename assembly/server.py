@@ -1,6 +1,5 @@
 from __future__ import print_function
 from keystone import *
-from keystone import KsError
 from unicorn import *
 from unicorn.x86_const import *
 import array
@@ -71,21 +70,21 @@ def client_thread(conn):
     conn.send("Welcome to Santas Unicorn... uhmmm Reindeer Server. This is a binary challenge ;-).\n")
     try:
     	# Initialize engine in X86-32bit mode
-    	CODE = generate()
+        CODE = generate()
         CODE2 = generate()
-	ks = Ks(KS_ARCH_X86, KS_MODE_32)
-	encoding, count = ks.asm(CODE)
-	encoding2, count2 = ks.asm(CODE2)
+        ks = Ks(KS_ARCH_X86, KS_MODE_32)
+        encoding, count = ks.asm(CODE)
+        encoding2, count2 = ks.asm(CODE2)
 	#print("%s = %s (number of statements: %u)" %(CODE, encoding, count))
-	instructions = array.array('B', encoding).tostring()
-	instructions2 = array.array('B', encoding2).tostring()
-	result = emulate(instructions)
+        instructions = array.array('B', encoding).tostring()
+        instructions2 = array.array('B', encoding2).tostring()
+        result = emulate(instructions)
         result2 = emulate(instructions2)
         print(result)
         print(result2)
     except KsError as e:
-	print(CODE)
-	print("ERROR: %s" %e)
+        print(CODE)
+        print("ERROR: %s" %e)
         conn.send("Something went horribly wrong on our side :( please connect again")
 
     conn.send("Your first Challenge is>")
@@ -119,7 +118,7 @@ def client_thread(conn):
 if __name__ == "__main__":
     try:
         s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-    except socket.error, msg:
+    except socket.error as msg:
         print("Could not create socket. Error Code: ", str(msg[0]), "Error: ", msg[1])
         sys.exit(0)
 
@@ -129,7 +128,7 @@ if __name__ == "__main__":
     try:
         s.bind((HOST, PORT))
         print("[-] Socket Bound to port " + str(PORT))
-    except socket.error, msg:
+    except socket.error as msg:
         print("Bind Failed. Error Code: {} Error: {}".format(str(msg[0]), msg[1]))
         sys.exit()
     s.listen(10)
