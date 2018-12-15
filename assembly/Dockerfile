@@ -8,11 +8,22 @@ RUN \
 RUN \
   apt-get update && \
   apt-get -y upgrade && \
-  apt-get install -y python2.7-dev python-pip libssl-dev && \
-  pip install unicorn keystone-engine
-
+  apt-get install -y python2.7-dev python-pip libssl-dev cmake git
 
 WORKDIR /usr/src/app
+RUN \
+	git clone https://github.com/keystone-engine/keystone.git && \
+	cd keystone/bindings/python && \
+	make install && \
+	cd ../.. && \
+	mkdir build && \
+	cd build && \
+	../make-share.sh && \
+	make install && \
+	ldconfig
+	
+	
+
 COPY server.py .
 RUN chmod +x server.py
 COPY success .

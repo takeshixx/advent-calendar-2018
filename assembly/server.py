@@ -1,5 +1,5 @@
 from __future__ import print_function
-from keystone import *
+from keystone-engine import *
 from unicorn import *
 from unicorn.x86_const import *
 import array
@@ -71,19 +71,21 @@ def client_thread(conn):
     # Initialize engine in X86-32bit mode
     CODE = generate()
     CODE2 = generate()
-    ks = Ks(KS_ARCH_X86, KS_MODE_32)
-    encoding, count = ks.asm(CODE)
-    encoding2, count2 = ks.asm(CODE2)
-    #print("%s = %s (number of statements: %u)" %(CODE, encoding, count))
-    instructions = array.array('B', encoding).tostring()
-    instructions2 = array.array('B', encoding2).tostring()
-    result = emulate(instructions)
-    result2 = emulate(instructions2)
-    print(result)
-    print(result2)
-    print(CODE)
-    print("ERROR: %s" %e)
-    conn.send("Something went horribly wrong on our side :( please connect again")
+    try:
+        ks = Ks(KS_ARCH_X86, KS_MODE_32)
+        encoding, count = ks.asm(CODE)
+        encoding2, count2 = ks.asm(CODE2)
+        #print("%s = %s (number of statements: %u)" %(CODE, encoding, count))
+        instructions = array.array('B', encoding).tostring()
+        instructions2 = array.array('B', encoding2).tostring()
+        result = emulate(instructions)
+        result2 = emulate(instructions2)
+        print(result)
+        print(result2)
+        print(CODE)
+    except KsError as e:
+        print("ERROR: %s" %e)
+        conn.send("Something went horribly wrong on our side :( please connect again")
 
     conn.send("Your first Challenge is>")
     conn.send(instructions)
