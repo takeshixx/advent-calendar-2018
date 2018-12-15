@@ -9,7 +9,7 @@ RUN \
   apt-get update && \
   apt-get -y upgrade && \
   apt-get install -y python2.7-dev python-pip libssl-dev && \
-  pip install unicorn keystone
+  pip install unicorn keystone-engine
 
 
 WORKDIR /usr/src/app
