@@ -9,7 +9,7 @@ import sys
 from thread import start_new_thread
 
 HOST = '' # all availabe interfaces
-PORT = 4443 # arbitrary non privileged port 
+PORT = 16 # arbitrary non privileged port 
 
 def emulate(emulation_code):
 	ADDRESS = 0x1000000
