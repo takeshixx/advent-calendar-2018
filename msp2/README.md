@@ -6,5 +6,5 @@ A Python implementation of the Message Send Protocol [RC1312](https://tools.ietf
 
 ```bash
 docker build -t day18_msp2 .
-docker run -d --restart=always -p 18:1338 --name=day18 day18_msp2
+docker run -d --restart=always -p 18:1338/udp --name=day18 day18_msp2
 ```

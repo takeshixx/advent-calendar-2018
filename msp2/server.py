@@ -84,7 +84,7 @@ class MessageSendProtocol2:
 
 
 if __name__ == '__main__':
-    host = '127.0.0.1'
+    host = '0.0.0.0'
     port = 1338
     loop = asyncio.get_event_loop()
     listen = loop.create_datagram_endpoint(MessageSendProtocol2,
