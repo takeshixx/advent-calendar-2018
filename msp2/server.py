@@ -32,7 +32,7 @@ class MessageSendProtocol2:
         if (message['receiver'] == 'santa' or message['receiver'] == '*') and \
                 'secret' in message['message']:
             msg = '+Message delivered to Santa, have a nice XMAS!\n'
-            msg += 'KNorKt0qSZPznXXGcRNRPGQYKbSclE9so0sUEBUx2GRerAJjoGA96nueapevr3hH\n'
+            msg += 'f4i055GrzIjgqpE4i2KpNL3nr1EohSGyJDVwLA5EMXHvlV1/K402ERI2XxGstovv\n'
             self._send(msg, addr)
         elif message['receiver'] == '*':
             msg = '+Message delivered to:\n'
