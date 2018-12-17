@@ -6,7 +6,7 @@ A simple server that is using the QUIC protocol.
 
 ```bash
 docker build -t day20_xmasquic .
-docker run -d --restart=always -p 20:20 --name=day20 day20_xmasquic
+docker run -d --restart=always -p 20:20/udp -v /etc/letsencrypt/archive/xmas.rip:/certs:ro --name=day20 day20_xmasquic
 ```
 
 ## Testing
