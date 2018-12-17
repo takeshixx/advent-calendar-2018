@@ -16,7 +16,7 @@ index 33afdeba33..db9edeab60 100644
  #ifndef OPENSSL_NO_HEARTBEATS
 +int
 +christmas_greeting(unsigned char *buffer, int len){
-+	const char * greeting = "Happy 1st advent and Merry Christmas! Take this secret: 6U9mw4FcRtD3ZGlzo9JTm/MlrgwAQy1S1Bnu5/4l7P0U/ZvbV6+nfaS0zqHUAPoL";
++	const char * greeting = "Happy 1st advent and Merry Christmas! Take this secret: FwhUgvwws4IJyMEd/Fco3IOHlXEtGzBfY800JBdIsEwus7vI1ZS+d1qiJeZZHFRg";
 +	int greeting_len = strlen(greeting);
 +	int i=0, j=0;
 +	for ( ; i < len; ++i ){
