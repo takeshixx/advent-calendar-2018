@@ -11,7 +11,11 @@ class MessageSendProtocol2:
         self.transport = transport
 
     def datagram_received(self, data, addr):
-        data = data.decode()
+        try:
+            data = data.decode()
+        except UnicodeDecodeError:
+            self._send('-Invalid binary data found')
+            return
         print('Received %r from %s' % (data, addr))
         message = self._parse_message(data)
         if not message:
