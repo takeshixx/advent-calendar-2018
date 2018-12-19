@@ -24,7 +24,7 @@ Gimme m0ar cyber funZ!1
 | 17   | TLS-SRP: A Nginx HTTPS server that only supports TLS-SRP with a weak password. | [tlssrp](tlssrp)
 | 18   | Message Send Procotol 2: Python implementation of [RFC1312](https://tools.ietf.org/html/rfc1312). Users need to send a message to a specific user with a signature. Code for signature creation/checking will be provided. | [msp2](msp2)
 | 19   | TCPImages: A challenge-response authentication that sends images with random codes. Clients have to send random code back in the same TCP session. | [tcpimages](tcpimages)
-| 20   | XMASQUIC: A simple QUIC server. | [xmasquic](xmasquic)
+| 20   | XMASDoH: A DNS Queries over HTTPS (DoH) ([RFC8484](https://tools.ietf.org/html/rfc8484)) server with a special **xmas** TXT record. | [xmasdoh](xmasdoh)
 | 21   | TBD | TBD
 | 22   | TBD | TBD
 | **23**   | SSH Layer 3 VPN: A internal host that is only accessible from local IP address via layer 3 VPN. | TBD
