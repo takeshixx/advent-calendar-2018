@@ -6,8 +6,8 @@ import (
 	"crypto/tls"
 	"crypto/x509"
 	"encoding/pem"
-	"fmt"
 	"math/big"
+	"fmt"
 	"os"
 	quic "github.com/lucas-clemente/quic-go"
 )
@@ -35,30 +35,36 @@ ___\\U//___     >*>>@><0<<*>>@><*<0<<
     |'.'.'.|   ^^^^^^|____|>>>>>>|
     ~~~~~~~~         '""""|------'
 
-gS3sgimI95DYGorXd/hj9tJlPBucjPJHUOe8coxqOVPbFcGLtpt5tdoGu2SVnO2w`
+NW2ODB0laI0syozU6Xr5gJxkFKenZ+fXiLq/ggACLW8qZISFhu9C30F+HKL6X6Y4`
 
 func main() {
-	if len(os.Args) < 5 {
-		fmt.Printf("Usage: %s host port cert key\n", os.Args[0])
+	if len(os.Args) < 3 {
+		fmt.Printf("Usage: %s host port [cert] [key]\n", os.Args[0])
 		os.Exit(1)
 	}
 	host := os.Args[1]
 	port := os.Args[2]
-	cert := os.Args[3]
-	key := os.Args[4]
+	var config *tls.Config
+	if len(os.Args) > 3 {
+		cert := os.Args[3]
+		key := os.Args[4]
+		pem, err := tls.LoadX509KeyPair(cert, key)
+		if err != nil {
+			panic(err)
+		}
+		config = &tls.Config{Certificates: []tls.Certificate{pem}}
+	} else {
+		config = generateTLSConfig()
+	}
 	addr := fmt.Sprintf("%s:%s", host, port)
-	err := echoServer(addr, cert, key)
+	err := echoServer(addr, config)
 	if err != nil {
 		panic(err)
 	}
 }
 
-func echoServer(addr string, cert string, key string) error {
-	pem, err := tls.LoadX509KeyPair(cert, key)
-	if err != nil {
-		panic(err)
-	}
-	config := &tls.Config{Certificates: []tls.Certificate{pem}}
+func echoServer(addr string, config *tls.Config) error {
+	
 	listener, err := quic.ListenAddr(addr, config, nil)
 	if err != nil {
 		return err
@@ -80,4 +86,24 @@ func handleConnection(sess quic.Session) error {
 	}
 	_, err = stream.Write([]byte(xmas))
 	return err
+}
+
+func generateTLSConfig() *tls.Config {
+	key, err := rsa.GenerateKey(rand.Reader, 1024)
+	if err != nil {
+		panic(err)
+	}
+	template := x509.Certificate{SerialNumber: big.NewInt(1)}
+	certDER, err := x509.CreateCertificate(rand.Reader, &template, &template, &key.PublicKey, key)
+	if err != nil {
+		panic(err)
+	}
+	keyPEM := pem.EncodeToMemory(&pem.Block{Type: "RSA PRIVATE KEY", Bytes: x509.MarshalPKCS1PrivateKey(key)})
+	certPEM := pem.EncodeToMemory(&pem.Block{Type: "CERTIFICATE", Bytes: certDER})
+
+	tlsCert, err := tls.X509KeyPair(certPEM, keyPEM)
+	if err != nil {
+		panic(err)
+	}
+	return &tls.Config{Certificates: []tls.Certificate{tlsCert}}
 }
