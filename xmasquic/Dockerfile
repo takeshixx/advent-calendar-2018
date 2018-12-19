@@ -11,5 +11,5 @@ ENV PATH $PATH:/usr/local/go/bin
 RUN go get github.com/lucas-clemente/quic-go
 WORKDIR /usr/src/app
 COPY server.go .
-#CMD ["go", "run", "server.go", "0.0.0.0", "20", "/certs/fullchain1.pem", "/certs/privkey1.pem"]
-CMD ["go", "run", "server.go", "0.0.0.0", "20"]
+CMD ["go", "run", "server.go", "0.0.0.0", "21", "/certs/fullchain1.pem", "/certs/privkey1.pem"]
+

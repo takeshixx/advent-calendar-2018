@@ -64,7 +64,7 @@ func main() {
 }
 
 func echoServer(addr string, config *tls.Config) error {
-	
+	fmt.Printf("Starting listener on %s\n", addr)
 	listener, err := quic.ListenAddr(addr, config, nil)
 	if err != nil {
 		return err
