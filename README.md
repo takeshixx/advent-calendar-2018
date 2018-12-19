@@ -25,22 +25,13 @@ Gimme m0ar cyber funZ!1
 | 18   | Message Send Procotol 2: Python implementation of [RFC1312](https://tools.ietf.org/html/rfc1312). Users need to send a message to a specific user with a signature. Code for signature creation/checking will be provided. | [msp2](msp2)
 | 19   | TCPImages: A challenge-response authentication that sends images with random codes. Clients have to send random code back in the same TCP session. | [tcpimages](tcpimages)
 | 20   | XMASDoH: A DNS Queries over HTTPS (DoH) ([RFC8484](https://tools.ietf.org/html/rfc8484)) server with a special **xmas** TXT record. | [xmasdoh](xmasdoh)
-| 21   | TBD | TBD
+| 21   | XMASQUIC: A simple QUIC server. | [xmasquic](xmasquic)
 | 22   | TBD | TBD
 | **23**   | SSH Layer 3 VPN: A internal host that is only accessible from local IP address via layer 3 VPN. | TBD
 | 24   | TBD | TBD
 
 ## Potential Challenges
 
-* [QUIC](https://ma.ttias.be/googles-quic-protocol-moving-web-tcp-udp/)
-    * Some implementations are available
-        * [Playing with QUIC](https://www.chromium.org/quic/playing-with-quic)
-        * [quic-py](https://github.com/ZhukovAlexander/quic-py)
-        * [quic-go](https://github.com/lucas-clemente/quic-go)
-    * [HTTP over QUIC](https://tools.ietf.org/html/draft-ietf-quic-http-03)
-        * it's a current draft, could be interesting to implement a poor man's version.
-* TLS
-    * algorithms that are not widely supported/used, maybe PSK cipher suites.
 * TLS with client cert
     * requires to be signed by an official CA and do other checks. only publish the code.
 * Special HTTP server
@@ -48,8 +39,6 @@ Gimme m0ar cyber funZ!1
 * JAVA RMI
     * A simple remote interface where users have to implement a simple client that calls a function.
     * Just slightly change the [Hello World](https://docs.oracle.com/javase/8/docs/technotes/guides/rmi/hello/hello-world.html) example.
-* DNS over DTLS ([RFC8094](https://tools.ietf.org/html/rfc8094))
-    * A poor mans implementation of providing DNS via a DTLS proxy.
 * HTTP Proxy that injects JavaScript snow into pages
 * Port Hunter
     * A service that just prints a port number which will be opened temporarily.
