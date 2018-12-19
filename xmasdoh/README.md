@@ -1,6 +1,6 @@
-# DNS over DTLS
+# XMAS DNS over HTTPS (DoH)
 
- A poor man's implementation of [RFC8094](https://datatracker.ietf.org/doc/rfc8094/).
+ DNS Queries over HTTPS (DoH) [RFC8484](https://tools.ietf.org/html/rfc8484) port where a special TXT query has to be sent.
 
  ## Running
 
