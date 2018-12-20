@@ -1,5 +1,6 @@
 # Advent Calendar of Advanced Cyber Fun 2018
-Gimme m0ar cyber funZ!1
+
+A CTF-like advent calendar that opens a port everyday, starting from port 1. The challenges incorporate different protocols and services randing from ancient RFCs to bleeding edge technologies. Each port is meant to be solvable rather easily so that it doesn't take too much time. 
 
 ## Agenda
 
@@ -32,8 +33,8 @@ Gimme m0ar cyber funZ!1
 
 ## Potential Challenges
 
-* TLS with client cert
-    * requires to be signed by an official CA and do other checks. only publish the code.
+* TLS with client cert checks
+    * Requires to be signed by an official CA and do other checks. only publish the code.
 * Special HTTP server
     * HTTP server that requires special user-agent and referrer header.
 * JAVA RMI
