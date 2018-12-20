@@ -1,0 +1,1 @@
+restrict,command="/bin/false",port-forwarding,permitopen="127.0.0.1:22" ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIAbYnZB/vtR384lRdRUkNe/SWjxlnTqDhZQaEHe16Av7 santa@xmas
