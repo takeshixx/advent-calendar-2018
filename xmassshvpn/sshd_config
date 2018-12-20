@@ -11,6 +11,9 @@ X11Forwarding no
 PermitTunnel no
 PrintMotd no
 PermitTTY no
-AllowUsers santa
+AllowUsers santa 
 Match User santa
-  ForceCommand /bin/id
+  ForceCommand /bin/true
+  PermitOpen 127.0.0.1:22
+  AllowTcpForwarding yes
+  PermitTunnel ethernet
