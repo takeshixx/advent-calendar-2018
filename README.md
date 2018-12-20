@@ -28,7 +28,7 @@ A CTF-like advent calendar that opens a port everyday, starting from port 1. The
 | 20   | XMASDoH: A DNS Queries over HTTPS (DoH) ([RFC8484](https://tools.ietf.org/html/rfc8484)) server with a special **xmas** TXT record. | [xmasdoh](xmasdoh)
 | 21   | XMASQUIC: A simple QUIC server. | [xmasquic](xmasquic)
 | 22   | TBD | TBD
-| **23**   | SSH Layer 3 VPN: A internal host that is only accessible from local IP address via layer 3 VPN. | TBD
+| **23**   | SSH Layer 2 VPN: Clients have to establish a ethernet tunnel via SSH and send a DHCP DISCOVER on the tap device. | [xmassshvpn](xmassshvpn)
 | 24   | TBD | TBD
 
 ## Potential Challenges
