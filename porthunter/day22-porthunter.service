@@ -1,0 +1,12 @@
+[Unit]
+Description=day22: Porthunter
+After=network.target
+
+[Service]
+Type=simple
+User=santa
+ExecStart=/usr/bin/python3.6 /home/santa/advent-calendar-2018/porthunter/server.py
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target
