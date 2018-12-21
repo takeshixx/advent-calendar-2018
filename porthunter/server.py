@@ -36,13 +36,19 @@ class ClientThread(Thread):
                 if(self.runner(prot, port, magic)):
                     win_iter += 1
                 else:
-                    self.conn.send(b"FAILED")
+                    try:
+                        self.conn.send(b"FAILED")
+                    except OSError:
+                        pass
                     break
             
             if win_iter >= win_condition:
                 # Since we used a Systemd file this needed to be a static path. 
                 success = open("/home/santa/advent-calendar-2018/porthunter/success", "rb").read()
-                self.conn.send(success)
+                try:
+                    self.conn.send(success)
+                except OSError:
+                    pass
             break
         conn.close()
 
