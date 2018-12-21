@@ -4,7 +4,7 @@ After=network.target
 
 [Service]
 Type=simple
-User=santa
+User=root
 ExecStart=/usr/bin/python3.6 /home/santa/advent-calendar-2018/porthunter/server.py
 Restart=on-failure
 
