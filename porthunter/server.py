@@ -55,7 +55,7 @@ class ClientThread(Thread):
         try:
             cmd_input = cmd[prot]
             cmd_input.append("{}".format(port))
-            output = check_output(cmd_input, stderr=STDOUT, timeout=30)
+            output = check_output(cmd_input, stderr=STDOUT, timeout=4)
             if magic in str(output):
                 return True
         except TimeoutExpired as e:
@@ -68,7 +68,7 @@ class ClientThread(Thread):
 
 if __name__ == "__main__":
     TCP_IP = '0.0.0.0' 
-    TCP_PORT = 4444 
+    TCP_PORT = 22 
     
     tcpServer = socket.socket(socket.AF_INET, socket.SOCK_STREAM) 
     tcpServer.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1) 
