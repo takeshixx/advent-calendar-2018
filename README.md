@@ -1,6 +1,8 @@
 # Advent Calendar of Advanced Cyber Fun 2018
 
-A CTF-like advent calendar that opens a port everyday, starting from port 1. The challenges incorporate different protocols and services randing from ancient RFCs to bleeding edge technologies. Each port is meant to be solvable rather easily so that it doesn't take too much time. 
+A CTF-like advent calendar that opens a port everyday, starting from port 1. The challenges incorporate different protocols and services ranging from ancient RFCs to bleeding edge technologies. Each port is meant to be solvable rather easily so that it doesn't take too much time.
+
+Generally, the services run in Docker containers. Each service has a `Dockerfile` and instructions in the respective `README.md` how to use it. However, there are some exceptions for services that could not run in Docker containers. These include i.e. incompatibilities with Docker and SCTP or requirements for setting `sysctl` parameters and `iptables` rules on the host system. These run via `systemd`.
 
 ## Agenda
 
