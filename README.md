@@ -31,22 +31,6 @@ A CTF-like advent calendar that opens a port everyday, starting from port 1. The
 | **23**   | SSH Layer 2 VPN: Clients have to establish a ethernet tunnel via SSH and send a DHCP DISCOVER on the tap device. | [xmassshvpn](xmassshvpn)
 | 24   | TBD | TBD
 
-## Potential Challenges
-
-* TLS with client cert checks
-    * Requires to be signed by an official CA and do other checks. only publish the code.
-* Special HTTP server
-    * HTTP server that requires special user-agent and referrer header.
-* JAVA RMI
-    * A simple remote interface where users have to implement a simple client that calls a function.
-    * Just slightly change the [Hello World](https://docs.oracle.com/javase/8/docs/technotes/guides/rmi/hello/hello-world.html) example.
-* HTTP Proxy that injects JavaScript snow into pages
-* Port Hunter
-    * A service that just prints a port number which will be opened temporarily.
-    * Port wil change every several seconds.
-    * Users will have to automate it: connect to main port, fetch the port number, connect to the second port.
-    * Could include multiple protocols like TCP/UDP/SCTP.
-
 ## Development Setup
 
 Create a development VM with pre-installed Docker:
