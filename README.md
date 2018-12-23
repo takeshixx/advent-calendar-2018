@@ -27,7 +27,7 @@ A CTF-like advent calendar that opens a port everyday, starting from port 1. The
 | 19   | TCPImages: A challenge-response authentication that sends images with random codes. Clients have to send random code back in the same TCP session. | [tcpimages](tcpimages)
 | 20   | XMASDoH: A DNS Queries over HTTPS (DoH) ([RFC8484](https://tools.ietf.org/html/rfc8484)) server with a special **xmas** TXT record. | [xmasdoh](xmasdoh)
 | 21   | XMASQUIC: A simple QUIC server. | [xmasquic](xmasquic)
-| 22   | TBD | TBD
+| 22   | Port Hunter: A servie that opens random TCP/UDP/SCTP ports. Clients have to follow each port to get the secret. | [porthunter](porthunter)
 | **23**   | SSH Layer 2 VPN: Clients have to establish a ethernet tunnel via SSH and send a DHCP DISCOVER on the tap device. | [xmassshvpn](xmassshvpn)
 | 24   | TBD | TBD
 
