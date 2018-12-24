@@ -4,6 +4,8 @@ A CTF-like advent calendar that opens a port everyday, starting from port 1. The
 
 Generally, the services run in Docker containers. Each service has a `Dockerfile` and instructions in the respective `README.md` how to use it. However, there are some exceptions for services that could not run in Docker containers. These include i.e. incompatibilities with Docker and SCTP or requirements for setting `sysctl` parameters and `iptables` rules on the host system. These run via `systemd`.
 
+The 2018 edition of the advent calendar was hosted at `xmas.rip`. The page contents are in the [website](website) directory.
+
 ## Agenda
 
 | Port | Challenge | Path |
