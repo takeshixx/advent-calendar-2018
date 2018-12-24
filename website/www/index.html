@@ -1,0 +1,505 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8"/>
+    <title>Advent Calendar of Advanced Cyber Fun 2018</title>
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Mono" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="pygmentize-default.css" />
+
+    <style type="text/css">
+	body {
+        color: white;
+		font-size: 20px;
+		font-family: monospace;
+        background: url(img/bg.jpg) no-repeat center center fixed; 
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
+        font-family: 'Roboto Mono';
+	}
+	h1,h2 {
+        text-align: center;
+        font-size: 30px;
+        box-shadow: 0 0 40px 3px white, 0 0 40px 3px white;
+        border-radius: 10px;
+        margin-left: 25px;
+        margin-right: 25px;
+        padding: 15px;
+	}
+    h2 {
+        font-size: 25px;
+        margin-top: 50px;
+        margin-bottom: 50px;
+    }
+    .blinking {
+        animation: blinking 1s linear infinite;
+    }
+    @keyframes blinking {
+        50% {
+            opacity: 0;
+        }
+    }
+    a, a:visited, a:active {
+        color: #CC231E;
+        text-decoration: none !important;
+    }
+    a:hover {
+        color: #F5624D;
+    }
+	.content {
+		width: 1000px;
+		min-height: 600px;
+		border: 3px ridge rgba(128,128,128,0.4);
+		margin: 0 auto;
+        background: rgb(3, 34, 42);
+        box-shadow: 0 0 40px 3px white, 0 0 40px 3px white;
+        border-radius: 10px;
+        opacity: 0.9;
+	}
+	.dumbtext {
+		padding: 10px 55px;
+	}
+    .list {
+        padding: 0 100px 0 100px;
+    }
+    .list li:first-child {
+        padding-bottom: 20px;
+    }
+    .calendar {
+        min-height: 100%;
+        padding: 10px 75px 0 75px;
+    }
+    .calendar tr td {
+        padding-bottom: 65px;
+    }
+    .calendar tr td:first-child {
+        text-align: center;
+        font-weight: bold;
+        background-size: 100% auto;
+        background-repeat: no-repeat;
+        vertical-align: middle;
+    }
+    .calendar tr td:first-child div {
+        height: 100%;
+        vertical-align: middle;
+        display: inline-block;
+    }
+    .calendar tr td:first-child span img {
+        width: 90px;
+        display: inline-block;
+        vertical-align: middle;
+    }
+    .calendar tr td:first-child span {
+        display: inline-block;
+        vertical-align: middle;
+    }
+    .calendar tr td:last-child {
+    }
+    .num {
+        float: left;
+        width: 100px;
+        height: 100px;
+        border: 1px solid black;
+        background-color: #3C8D0D;
+    }
+    h4 {
+        font-weight: normal;
+        font-size: 18px;
+        padding: 0;
+        margin: 25px 0 0 40px;
+        text-align: center;
+    }
+    .description {
+        margin: 0 0 0 40px;
+    }
+    .additional {
+        margin: 10px 0 0 40px;
+    }
+    .hints {
+        display: none;
+        line-height: 175%;
+        border: 1px solid rgba(60,141,13,0.7);
+        border-radius: 8px;
+        padding: 10px;
+        background-color: #378b29;
+    }
+    .voucher {
+        background: rgb(2, 22, 27);
+        padding-top: 20px;
+        font-family: "Courier New", Courier, monospace;
+        font-size: 15px;
+        padding-left: 55px;
+    }
+    .code {
+        background: rgb(2, 22, 27);
+        margin-left: 40px;
+        padding: 20px 20px 0 20px;
+        font-family: "Courier New", Courier, monospace;
+        font-size: 15px;
+    }
+    .highlight pre {
+        margin: 0;
+    }
+    .center {
+        max-width: 200px;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        width: 50%;
+    }
+    </style>
+    <script src="snowstorm.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        function toggle_visibility(id) {
+        var e = document.getElementById(id);
+        if(e.style.display == 'block')
+            e.style.display = 'none';
+        else
+            e.style.display = 'block';
+        }
+    </script>
+</head>
+<body>
+
+<div class="content">
+    <h1 class="blinking">Advent Calendar of Advanced Cyber Fun  2018</h1>
+
+    <p class="dumbtext">Ho ho ho! Welcome to the advent calendar of advanced cyber fun, 2018 edition. Everyday we will open one port until the 24th of December, starting from port 1. It is up to you fellas to explore what Santa is up to!</p>
+
+    <p class="dumbtext">Santa likes to play around with exotic protocols and weird technology. Have fun trying to use his services!</p>
+
+    <h2>Let the fun begin!</h2>
+
+    <table class="calendar">
+        <tbody>
+            <tr id="day01">
+                <td><div></div><span><img src="img/1.png" alt="day1"/> 1/TCP</span></td>
+                <td>
+                    <p class="description">Sometimes it's hard to remember all of those silly port numbers. And there is this restriction of 65535 ports, but santa wanted to host this year's <b>wishlist</b> protocol on TCP 24122018! Wouldn't it be great to access services based on their name, and not their port number?!</p>
+                    <p class="additional">So Santa is hosting the <b>wishlist</b> service with the help of old school technology: <a href="https://tools.ietf.org/html/rfc1078">RFC1078</a>. Send him your wishlist!</p>
+                    <h4><a href="#/" onclick="toggle_visibility('hint11');">Hint</a></h4>
+                    <p id="hint11" class="additional hints">Did you tell your netcat/nc/ncat to send proper CRLFs (-C/--crlf)?</p>
+                </td>
+            </tr>
+
+            <tr id="day02">
+                <td><div></div><span><img src="img/2.png" alt="day2"/> 2/TCP</span></td>
+                <td>
+                    <p class="description">Laaast Christmas, I gave you my heart...beat. But the very next day you gave my <b>memory</b> away!</p>
+                    <p class="additional">Santa loves this song, so much good memory. His memory is full of Christmas fun! Sometimes he's dancing and partying so much that he forgets to update his services. But he uses a lot of open source software, so there are no vulnerabilities anyway and Santa is using SSL/TLS all over the place.</p>
+                    <h4><a href="#/" onclick="toggle_visibility('hint21');">Hint</a></h4>
+                    <p id="hint21" class="additional hints">You need a tool that exploits <a href="http://heartbleed.com">CVE-2014-0160</a> and dumps the leaked memory, something like <a href="https://gist.github.com/takeshixx/10107280">hb-test.py</a>.</p>
+                </td>
+            </tr>
+
+            <tr id="day03">
+                <td><div></div><span><img src="img/3.png" alt="day3"/> 3/SCTP</span></td>
+                <td>
+                    <p class="description">Transporting presents on Christmas is important for Santa. That's why choosing the right transport is crucial for proper Christmas sessions. We all know those boring transport layer protocols, but isn't there anything new and exciting?! Wouldn't it be great to access this webserver with any other protocol than plain old TCP?</p>
+                    <p class="additional">One of Santa's hobbies is browsing the site of IETF to look for exciting new stuff. He decided that <a href="https://tools.ietf.org/html/draft-natarajan-http-over-sctp-00">draft-natarajan-http-over-sctp-00</a> is a great idea! And that <b>xmas.rip</b> should be accessible via this protocol...</p>
+                    <h4><a href="#/" onclick="toggle_visibility('hint31');">Hint</a></h4>
+                    <p id="hint31" class="additional hints"><a href="http://www.dest-unreach.org/socat/" target="_blank">socat</a> and <a href="https://nmap.org/ncat/" target="_blank">ncat</a> both support SCTP.</p>
+                </td>
+            </tr>
+
+            <tr id="day04">
+                <td><div></div><span><img src="img/4.png" alt="day4"/> 4/TCP</span></td>
+                <td>
+                    <p class="description">Santa likes to watch television series. He was a big fan of <b>Lost</b>. Do you even remember that? He also loves Breaking Bad, because Santa is the one who <b>knocks</b>. Knock knock!</p>
+                    <p class="additional">Today's service is not accessible, what a bummer. But it seems like Santa is able to access it somehow. The Christmas Intelligence Agency (CIA) <a href="data/day04.pcapng">captured his traffic</a> when he accessed it. What the hell was he doing?!</p>
+                    <h4><a href="#/" onclick="toggle_visibility('hint41');">Hint</a></h4>
+                    <p id="hint41" class="additional hints">Ignore the SSL/TLS connections. Focus on 4/TCP and what happens before it's accessed...</p>
+                </td>
+            </tr>
+
+            <tr id="day05">
+                <td><div></div><span><img src="img/5.png" alt="day5"/> 5/TCP</span></td>
+                <td>
+                    <p class="description">Christmas Inc. is running a super secret intelligence service which is only accessible for authorized personnel. It authenticates users with <b>client certificates</b>.</p>
+                    <p class="additional">Grinch's Computer Hacking Qrew (GCHQ) found that "<b>Rudolph Christmas Inc</b>" could be a valid user, but it seems like having at least "<b>christmas</b>" in the certificate's <b>Common Name</b> could be enough. Like many developers they think checking the Common Name is sufficient to validate a client certificate.</p><p class="additional">Try to impersonate Christmas Inc. employees with a proper certificate!</p>
+                </td>
+            </tr>
+
+            <tr id="day06">
+                <td><div></div><span><img src="img/6.png" alt="day6"/> 6/TCP</span></td>
+                <td>
+                    <p class="description">Beware of the Grinch! He wants to steal Christmas again and is not afraid to do this by any means. Some may even call him a <b>SERIAL</b> killer of mood.</b>.</p>
+                    <p class="additional">Secrect Christmas Service (SCS) elves have observed strange behavior with today's port: Grinch's sessions always connect to two ports. One of them is <b>666</b>... He might be up to something there?! The Elve Cyber Crew (EC2) can't figure out how to deal with those complicated calculations. Always remember: two plus two is four minus one that's three. Quick maths!</p>
+                </td>
+            </tr>
+
+            <tr id="day07">
+                <td><div></div><span><img src="img/7.png" alt="day7"/> 7/TCP</span></td>
+                <td>
+                    <p class="description">Christmas can be exhausting for Santa. Delivering all of those presents requires the right methods. If you use the wrong methods, stuff will just not work.</b>.</p>
+                    <p class="additional">Don't even try to <b>GET</b> what's Santa's secret tactic. Sometimes you got to make your own decisions. You have to evaluate your <b>OPTIONS</b>. It might get confusing in your <b>HEAD</b>.</p>
+                </td>
+            </tr>
+
+            <tr id="day08">
+                <td><div></div><span><img src="img/8.png" alt="day8"/> 8/TCP</span></td>
+                <td>
+                    <p class="description">It's saturday night and Santa is out to party with the elves. He likes to dance, especially the <b>ChaCha</b>, it's his favorite!</p>
+                    <p class="additional">Santa likes to challenge others when it comes to dancing. He's absolutely into dance battles. But without <b>ChaCha</b> you won't be able to reach him.</p>
+                    <h4><a href="#/" onclick="toggle_visibility('hint81');">Hint</a></h4>
+                    <p id="hint81" class="additional hints">Use one of the following cipher suites:
+                        <br />ECDHE-ECDSA-CHACHA20-POLY1305
+                        <br />ECDHE-RSA-CHACHA20-POLY1305
+                        <br />DHE-RSA-CHACHA20-POLY1305
+                    </p>
+                </td>
+            </tr>
+
+            <tr id="day09">
+                <td><div></div><span><img src="img/9.png" alt="day9"/> 9/TCP</span></td>
+                <td>
+                    <p class="description">Deep down in the depths of Santa's Kernel fancy stuff is happening. Rumors have it that there is some kind of packet filtering that only allows specific clients. Elves noticed that services are only accessible by the Christmas staff members, but not by any random client.</p>
+                    <p class="additional">For the 2nd Advent Santa is using advanced packet inspection technology to keep services safe from intruders. The only information that is available is some <a href="https://kleber.io/jpgZpQ" target="_blank">eBPF code</a> that does stuff. Access to today's port is guarded by this code. Can you dig it?</p>
+                    <p class="additional"><b>Note</b>: No IPv6. ¯\_(ツ)_/¯</p>
+                </td>
+            </tr>
+
+            <tr id="day10">
+                <td><div></div><span><img src="img/10.png" alt="day10"/> 10/TCP</span></td>
+                <td>
+                    <p class="description">The tenth port is one of Santa's <b>Remoting</b> ports that he hosts on the <b>.Net</b>work. It is accessible by anyone, but you need a proper client.</p>
+                    <p class="additional">The elves are not sure how to build a client but they gathered some intel on the inner workings of Sanata's Remoting tool. There is some <a href="data/day10.pcap">captured traffic</a> and a <a href="https://kleber.io/VC9B" target="_blank">code snippet</a>. Can you create your own client?</p>
+                </td>
+            </tr>
+
+            <tr id="day11">
+                <td><div></div><span><img src="img/11.png" alt="day11"/> 11/TCP</span></td>
+                <td>
+                    <p class="description">Remote shell access is a crucial part of Santa's Christmas DevOps. Keeping it secure is relevant to securely delivering best possible gift distribution characteristics. The best option is Santa's Shell (<b>SSH</b>) which provides superb security with strong authentication. And integrity checking. It is also much faster than other secure remote access protocols, almost as fast as <b>telnet</b>!</p>
+                    <p class="additional">Even though Santa is using his SSH, Grinch's Computer Hacking Qrew (GCHQ) captured his traffic and found something strange. Somehow the data of the SSH session was trasmitted in clear! They found out that Santa is using his <b>santa</b> account, and he is using a super weak password, <b>santa</b>! Unfortunately, all of GCHQ's staff is using bleeding edge <b>SSH2</b> clients which seem to be incompatible. The reason...? <b>none</b>.</p>
+                    <h4><a href="#/" onclick="toggle_visibility('hint111');">Hint</a></h4>
+                    <p id="hint111" class="additional hints"><a href="https://kleber.io/jJ_4" target="_blank">openssh_v6.8_none_cipher.patch</a></p>
+                </td>
+            </tr>
+
+            <tr id="day12">
+                <td><div></div><span><img src="img/12.png" alt="day12"/> 12/TCP</span></td>
+                <td>
+                    <p class="description">The future is now! Santa can finally deploy all his HTTPS services with the latest <b>TLS</b> technology. Lets celebrate <a href="https://tools.ietf.org/html/rfc8446" target="_blank">RFC8446</a>! Are your clients compatible yet?</p>
+                </td>
+            </tr>
+
+            <tr id="day13">
+                <td><div></div><span><img src="img/13.png" alt="day13"/> 13/TCP</span></td>
+                <td>
+                    <p class="description"><b>TCP</b> is very much like Christmas: it's as reliable in transporting data as Santa is delivering presents!</p>
+                    <p class="additional">But exposing crucial Christmas services in hostile environments like the Internet is a no-no for Santa's security policies. That's why he likes to filter traffic, just a little bit. And what's the best way to do this? Exactly! With some (mostly) self explaining <b>iptable</b> rules. This time he came up with the following rule:</p>
+
+                    <pre class="code">
+                            <div class="highlight"><pre>iptables <span class="se">\</span>
+    -t nat <span class="se">\</span>
+    -A PREROUTING <span class="se">\</span>
+    -p tcp <span class="se">\</span>
+    --dport <span class="m">13</span> <span class="se">\</span>
+    -j DNAT <span class="se">\</span>
+    --to <span class="m">127</span>.0.0.1:1313 <span class="se">\</span>
+    -m u32 <span class="se">\</span>
+    --u32 <span class="s2">&quot;6&amp;0xFF=0x6 &amp;&amp; 4&amp;0x1FFF=0 &amp;&amp; 0&gt;&gt;22&amp;0x3C@12&gt;&gt;24&amp;0x0F=0xE&quot;</span>
+                            </pre></div>
+                                
+                    </pre>
+
+                    <p class="additional">Ez. You will figure it out, right? <a href="http://www.stearns.org/doc/iptables-u32.current.html" target="_blank">u32</a> is just amazing! Rumors have it that Santa enjoyed <a href="https://tools.ietf.org/html/rfc3514" target="_blank">RFC3514</a> (a.k.a. the <a href="https://blog.benjojo.co.uk/post/evil-bit-RFC3514-real-world-usage" target="_blank">evil bit</a>) so much that he implemented something similar. But in the <b>TCP header</b>.</p>
+
+                    <p class="additional">Secret sources revealed that Santa implemented a custom client with <a href="https://github.com/secdev/scapy" target="_blank">Scapy</a>, which seems to be required somehow. It should be sufficient to create a <b>TCP</b> session, but how does that silly <a href="https://tools.ietf.org/html/rfc793#section-3.4" target="_blank">handshake</a> work again?!</p>
+
+                    <p class="additional"><b>Note</b>: No IPv6. ¯\_(ツ)_/¯</p>
+
+                    <h4><a href="#/" onclick="toggle_visibility('hint131');">Hint</a></h4>
+                    <p id="hint131" class="additional hints"><a href="https://kleber.io/DBQFSrvT" target="_blank">This</a> might be a good starting point.</p>
+                </td>
+            </tr>
+
+            <tr id="day14">
+                <td><div></div><span><img src="img/14.png" alt="day14"/> 14/TCP</span></td>
+                <td>
+                    <p class="description">Santa's ports can be pretty weird. Sometimes they do one thing, sometimes something else... Maybe some of them do multiple things at the same time..?</p>
+                    <p class="additional">This port looks like a <b>HTTPS</b> port, right? But could it be something else? Maybe some hidden door into Santa's world? Always remember: <b>santa</b> uses his super secret <b>santa</b> password. Because Santa knows that no one is able to find his remote access ports anyway.</p>
+                </td>
+            </tr>
+
+            <tr id="day15">
+                <td><div></div><span><img src="img/15.png" alt="day15"/> 15/TCP</span></td>
+                <td>
+                    <p class="description">Playing around with sockets is super fun. All of these different protocols you can talk on the Internet,amazing!</p>
+                    <p class="additional">However, the <b>web</b> is also pretty decent when it comes to having fun. But nowadays we cannot only have our good old stateless HTTP, we have super cool stuff that is kind of like <b>sockets</b> as well! Wouldn't it be cool to play with <b>sockets</b> on the <b>web</b> or vice versa?! Guess what, Santa seems to have found out about <a href="https://tools.ietf.org/html/rfc6455" target="_blank">RFC6455</a>...</p>
+                </td>
+            </tr>
+
+            <tr id="day16">
+                <td><div></div><span><img src="img/16.png" alt="day16"/> 16/TCP</span></td>
+                <td>
+                    <p class="description">It is the 3rd advent and Santa has opened the gates to his Christmas Processing Unit (<b>CPU</b>). It is an engine based on <b>x86</b> and is operated by a remote processing channel where it delivers it's byte code via TCP.</p>
+                    <p class="additional">It is bleeding edge technology, so fancy that some say that you would need <a href="https://www.unicorn-engine.org/" target="_blank">Unicorns</a> to use it! Maybe using a disassembler could help understanding the sorcery behind this port.</p>
+                </td>
+            </tr>
+
+            <tr id="day17">
+                <td><div></div><span><img src="img/17.png" alt="day17"/> 17/TCP</span></td>
+                <td>
+                    <p class="description"><b>TLS</b> is super nice. It provides so much security for Santa's <b>HTTP</b> ports. But who understands how that Internet PKI, asymmetric cryptography and those stupid certificates work anyway?</p>
+                    <p class="additional">But wait, the IETF has a solution! <a href="https://tools.ietf.org/html/rfc5054" target="_blank">RFC5054</a> is the perfect solution for securing HTTPS servers without having to care about stupid certificates. All of that ridicoulus trust business is just silly. Santa is doing his own thing now. The only thing <b>santa</b> needs is his super secret password... <b>24122018</b>!</p>
+                </td>
+            </tr>
+
+            <tr id="day18">
+                <td><div></div><span><img src="img/18.png" alt="day18"/> 18/UDP</span></td>
+                <td>
+                    <p class="description">There are so many old protocols that no one uses anymore. But why? Some of those RFC are pretty simple. And easy to implement. And Santa loooves the <b>easy-to-implement</b> stuff!</p>
+                    <p class="additional">IANA said the 18th port must be <a href="https://tools.ietf.org/html/rfc1312" target="_blank">RFC1312</a>, so guess what we have today?! No one needs SMTP, it's way to complicated. Send <b>santa</b> a message, ask him for the <b>secret</b>! But be careful: Santa did something awesome, he implemented signatures even though they are not part of the RFC. And because the RFC does not define the signatures, Santa decided to make them super secure:</p>
+
+
+                        
+
+                    <div class="code">
+                        <div class="highlight"><pre>
+<span class="k">def</span> <span class="nf">_verify_signature</span><span class="p">(</span><span class="n">addr</span><span class="p">,</span> <span class="n">sender</span><span class="p">,</span> <span class="n">signature</span><span class="p">):</span>
+    <span class="n">source_ip</span> <span class="o">=</span> <span class="n">addr</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">blake</span> <span class="o">=</span> <span class="n">hashlib</span><span class="o">.</span><span class="n">blake2b</span><span class="p">(</span><span class="n">digest_size</span><span class="o">=</span><span class="mi">18</span><span class="p">)</span>
+    <span class="n">blake</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">source_ip</span><span class="o">.</span><span class="n">encode</span><span class="p">())</span>
+    <span class="n">blake</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">sender</span><span class="o">.</span><span class="n">encode</span><span class="p">())</span>
+    <span class="n">blake</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="sa">b</span><span class="s1">&#39;XMAS2018&#39;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">blake</span><span class="o">.</span><span class="n">hexdigest</span><span class="p">()</span> <span class="o">==</span> <span class="n">signature</span><span class="p">:</span>
+        <span class="k">return</span> <span class="kc">True</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="kc">False</span>
+                            </pre>
+                        </div>
+                    </div>
+
+                    <p class="additional">Let's see if you can send messages with the proper format to <b>santa</b>!</p>
+                    <h4><a href="#/" onclick="toggle_visibility('hint181');">Hint</a></h4>
+                    <p id="hint181" class="additional hints">If you are planning to use Python, you should use a <a href="https://docs.python.org/3.6/library/hashlib.html#hashlib.blake2b" target="_blank">recent version</a>!</p>
+                </td>
+            </tr>
+
+            <tr id="day19">
+                <td><div></div><span><img src="img/19.png" alt="day19"/> 19/TCP</span></td>
+                <td>
+                    <p class="description">Authentication is very important on the Internet. However, there are so many choices, but none of them are suitable for Christmas.</p>
+                    <p class="additional">That's why Santa implemented a super secure authentication mechanism with the right Christmas spirit. It's called <b>christmas-response</b>. Instead of a <b>challenge, it sends you <b>visual</b> Christmas candy! In order to access this port your response needs just the right Christmas spirit.</p>
+                </td>
+            </tr>
+
+            <tr id="day20">
+                <td><div></div><span><img src="img/20.png" alt="day20"/> 20/TCP</span></td>
+                <td>
+                    <p class="description">Security has not been relevant back in the day when a lot of protocols that we still use today have been invented. Especially when it comes to leaking plaintext information in the network. TLS fixed a lot of problems. But TLS won't save you from everyone around knowing where you wanne go. Or maybe it can...?</p>
+                    <img src="data/day20-doh.png" class="center" />
+                    <p class="additional">Got issues? <b>Resolve</b> them! Maybe <b>santa.xmas</b> is a good start. However, eventhough everything seems to be encrypted, there is still some important plain<b>TXT</b>, but you have to <b>resolve</b> the <b>xmas</b> fun first!</p>
+                    <h4><a href="#/" onclick="toggle_visibility('hint201');">Hint</a></h4>
+                    <p id="hint201" class="additional hints">Try <a href="https://facebookexperimental.github.io/doh-proxy/tutorials/simple-setup.html" target="_blank">doh-proxy</a>, it has a doh-client!</p>
+                </td>
+            </tr>
+
+            <tr id="day21">
+                <td><div></div><span><img src="img/21.png" alt="day21"/> 21/UDP</span></td>
+                <td>
+                    <p class="description">Christmas Eve is near so everyone is busy preparing for the big party. That's why a lot of people try to get Christmas presents late so there is a lot of workload on Santa's load balancers. Getting all of those presents out in time is a hard task, Santa has to be <b>quic</b>!</p>
+                    <p class="additional">In order to handle the workload, Santa and his crew has to get rid of all the overhead during the initial connection establishments. But they do not want to loose any security characteristics at all. Guess what, IETF is working on something to help Santa delivering those presents <a href="https://quicwg.org/" target="_blank">quicly</a>!</p>
+                    <h4><a href="#/" onclick="toggle_visibility('hint211');">Hint</a></h4>
+                    <p id="hint211" class="additional hints">The server has been implemented with <a href="https://github.com/lucas-clemente/quic-go" target="_blank">quic-go</a>. There might be <a href="https://docs.google.com/spreadsheets/d/1D0tW89vOoaScs3IY9RGC0UesWGAwE6xyLk0l4JtvTVg/edit#gid=174659577" target="_blank">interoperability issues</a>! ¯\_(ツ)_/¯</p>
+                </td>
+            </tr>
+
+            <tr id="day22">
+                <td><div></div><span><img src="img/22.png" alt="day22"/> 22/TCP</span></td>
+                <td>
+                    <p class="description">Besides having fun at Christmas, Santa enjoys playing catch with the elves. He loves it so much, that most of the time he is developing special tactics to beat everyone except the Grinch. The Grinch is really bad at it, so Santa came up with an idea.</p>
+                    <p class="additional">Santa implemented a new and innovative way of controlling clients that can access the services he runs for the elves. It is super sophisticated and supports multiple protocols. And it runs on multiple ports and it is easy to use. And easy to implement. You just have to follow the scents. Try to connect to those ports, maybe access to the secret will be granted to you. You gotta Catch 'Em All!</p>
+                    <p class="additional"><b>Note</b>: No IPv6. ¯\_(ツ)_/¯</p>
+                </td>
+            </tr>
+
+            <tr id="day23">
+                <td><div></div><span><img src="img/23.png" alt="day23"/> 23/TCP</span></td>
+                <td>
+                    <p class="description">The <a href="https://en.wikipedia.org/wiki/OSI_model" target="_blank">OSI model</a> is important for Santa's Christmas services because it not only defines protocols that can be used in combination with other protocols. There is a lot of fun on many different layers, but for the Internet we are somehow limited to the upper layers. The fun can only start at the transport layer and lower layer protocols are out of scope.</p>
+                    <p class="additional">However, remember it's almost Christmas, it's time for some super fantastic Christmas miracles! In order to get today's secret you have to send Santa a <a href="https://tools.ietf.org/html/rfc2131" target="_blank">DHCP</a> <b>DISCOVER</b> packet. Let's bring layer 2 fun into this! To accomplish this task Santa grants you access to his <b>SSH</b> gateway with his own personal <b>santa</b> account with his super secret <b>santa</b> password. You should plug a <b>ethernet</b> device into this port.</p>
+                    <p class="additional">Silly Santa has his own Christmas Interconnection model (CI model) with <b>9</b> layers of super duper Christmas fun!!1</p>
+                </td>
+            </tr>
+
+            <tr id="day24">
+                    <td><div></div><span><img src="img/24.png" alt="day24"/> 24/TCP</span></td>
+                    <td>
+                        <p class="description">Today is the day! We are finally there, Merry XMAS to everyone!!</p>
+                        <p class="additional">It's Christmas Eve so you shouldn't spent too much time on your computer. Go and spent time with your family and friends!</p>
+                        <p class="additional">Thanks to everyone who participated, Santa is proud of you!</p>
+                    </td>
+                </tr>
+
+        </tbody>
+    </table>
+
+    <h2 id="challenge">The Challenge</h2>
+
+    <p class="dumbtext">
+    This year we have a challenge where you can win an <a href="https://www.amazon.com/" target="_blank">Amazon</a> gift card worth <b>24,12€</b>! How to get the gift card is encrypted in the following message:
+    </p>
+    <pre class="voucher">
+    /Ed8rsvR9GtgW38oyMn6ON1dQlqgKECfaver/5fjcM8VLZE0Zk9X1qj5fYNRPbtA
+    wmPWlHiX7uwWVbL/N88mxq7FfDD5U9+42t750WmWN8UnbqiKMMG6AeV0peniM/Xh
+    LxVjR0LZ2Jd3dYD5MMGkmqON5X0d2JG3yg+4DwCfulvzLqji2IOGZLdwJyvBcc8s
+    HuHltrYT0CcWctsKdcxTBhRgG+/8zLtre61BroRU1SzhIQrf6ExXRMhqv6p1CwIk
+    iLivhzhIENU3saWzedYhNA==
+    </pre>
+
+    <p class="dumbtext">
+    The key is hidden in the 24 ports, one part per port. Each port will print a 48 byte Base64 encoded strings that have to be decoded and concatenated with all the other 24 strings. The <b>SHA256</b> sum of all 24 decoded and concatenated strings is the key. <a href="https://kleber.io/hSz6MFk" target="_blank">Here</a> is an example how to decode the key.
+    </p>
+
+    <p class="dumbtext">
+    After decoding the key, the message can be decrypted like this:
+    </p>
+
+    <div class="code">
+    <div class="highlight"><pre><span>openssl enc <span class="se">\</span>
+    -aes-256-cbc <span class="se">\</span>
+    -d <span class="se">\</span>
+    -in message.enc.b64 <span class="se">\</span>
+    -a <span class="se">\</span>
+    -iv <span class="m">01020304050607</span> <span class="se">\</span>
+    -K 57d9026946ca391833158e8d9fe6fdfe9b715e5dfe6fdfe9
+        </pre></div>
+    </div>
+
+    <p class="dumbtext">
+    <b>Note</b>: Challenge has last been updated 17.12.2018. All secret tokens that have been found before are invalid. Sorry! ¯\_(ツ)_/¯
+    </p>
+
+    <p class="dumbtext">
+    Good luck to everyone and have a nice XMAS 2018!
+    </p>
+
+    <h2 id="about">Wat?!</h2>
+
+    <p class="dumbtext">All ports are located on <b>xmas.rip</b> ranging from 1 to 24. All other ports and hosts are not part of this Christmas fun (unless the description contains another specific port)! Please refer to the description of each day about what protocols you may need to speak. Talking to Santa might get harder over time! Based on feedback there might be hints for the more complicated challenges.</p>
+
+    <p class="dumbtext"><b>Note</b>: This server will be online until the 27th of December 2018. All the code and configuration files will be published after the 24th.</p>
+
+    <p class="dumbtext">Thanks to technical advances in Christmasland, Santa's miraculous Christmas adventure supports</p>
+    <ul class="list">
+        <li><b>IPv6</b>: Most (probably even all) ports will support IPv6. Exotic ports without IPv6 support will have a hint in the corresponding description.</li>
+        <li><b>TLS</b>: Thanks to <a href="https://letsencrypt.org/" target="_blank">Let's Encrypt</a> Santa can securely distribute the miracles of Christmas. However, Santa intentionally disabled HSTS, so you can try and fail to connect to the ports with your browser.</li>
+    </ul>
+
+    <h2 id="contact">Further information</h2>
+
+    <ul class="list">
+        <li>This page has been created by <a href="https://twitter.com/_takeshix" target="_blank">@_takeshix</a> and <a href="https://twitter.com/lod108" target="_blank">@lod108</a>. Follow them for updates and potential hints!</li>
+        <li>Send your Christmas greetings to <b>advent [AT] adversec [DOT] com</b>.</li>
+    </ul>
+
+</div>
+<!-- Thanks to all the authors of the amazing XMAS ASCII arts! https://asciiart.website/index.php?art=holiday/christmas/other http://ascii.co.uk/art/xmas -->
+<!-- Kudos to Steve Lianardo for the awesome Christmas icons! http://www.iconarchive.com/show/free-christmas-flat-icons-by-stevelianardo.html -->
+
+</body>
+</html>
