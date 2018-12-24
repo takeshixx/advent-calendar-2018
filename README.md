@@ -31,7 +31,7 @@ Generally, the services run in Docker containers. Each service has a `Dockerfile
 | 21   | XMASQUIC: A simple QUIC server. | [xmasquic](xmasquic)
 | 22   | Port Hunter: A servie that opens random TCP/UDP/SCTP ports. Clients have to follow each port to get the secret. | [porthunter](porthunter)
 | **23**   | SSH Layer 2 VPN: Clients have to establish a ethernet tunnel via SSH and send a DHCP DISCOVER on the tap device. | [xmassshvpn](xmassshvpn)
-| 24   | TBD | TBD
+| 24   | Merry XMAS: Obfuscated JavaScript that prints the secret, one char at a time. | [merryxmas](merryxmas)
 
 ## Development Setup
 
